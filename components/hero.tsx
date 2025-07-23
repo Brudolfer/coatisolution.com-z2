@@ -14,7 +14,7 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="flex items-center justify-center mb-8">
           <div className="bg-gradient-to-r from-white/25 to-white/15 backdrop-blur-sm rounded-full p-8 border border-white/40 shadow-2xl">
-            <img src="/images/coati-logo.svg" alt="Coati Solutions Logo" className="h-20 w-auto" />
+            <img src="/images/coati-logo.svg" alt="Coati Solutions Logo" className="h-20 w-auto brightness-0 invert" />
           </div>
         </div>
 

@@ -8,7 +8,11 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-white/10 backdrop-blur-sm rounded-full p-3 border border-white/20">
-                <img src="/images/coati-logo.svg" alt="Coati Solutions Logo" className="h-10 w-auto" />
+                <img
+                  src="/images/coati-logo.svg"
+                  alt="Coati Solutions Logo"
+                  className="h-10 w-auto brightness-0 invert"
+                />
               </div>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">

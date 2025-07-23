@@ -35,7 +35,11 @@ export function Navigation() {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm rounded-full p-4 border border-white/30 shadow-xl">
-              <img src="/images/coati-logo.svg" alt="Coati Solutions Logo" className="h-12 w-auto" />
+              <img
+                src="/images/coati-logo.svg"
+                alt="Coati Solutions Logo"
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
           </div>
 
