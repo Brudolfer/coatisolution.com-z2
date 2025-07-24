@@ -45,7 +45,7 @@ export function Footer() {
                 <Linkedin className="w-5 h-5 text-white" />
               </a>
               <a
-                href="mailto:info@coati-solutions.de"
+                href="mailto:info@thecoatisolution.com"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
               >
                 <Mail className="w-5 h-5 text-white" />
@@ -101,9 +101,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 text-center">
-          <p className="text-gray-300">
-            © 2024 Coati Solutions. Alle Rechte vorbehalten. Mit ❤️ und modernster Technologie entwickelt.
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="text-center mb-4">
+            <p className="text-lg font-medium text-white mb-2">
+              Geben Sie sich nicht mit <span className="text-gray-400">gewöhnlichen Lösungen</span> zufrieden.
+            </p>
+            <p className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
+              Sie suchen "The Coati Solution" ✨
+            </p>
+          </div>
+          <p className="text-gray-300 text-center">
+            © 2025 Coati Solutions. Alle Rechte vorbehalten. Mit ❤️ und modernster Technologie entwickelt.
           </p>
         </div>
       </div>

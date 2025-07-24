@@ -74,7 +74,7 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-white font-semibold">E-Mail</div>
-                  <div className="text-gray-300">hallo@coatisolutions.de</div>
+                  <div className="text-gray-300">info@thecoatisolution.com</div>
                 </div>
               </div>
 
@@ -94,7 +94,7 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-white font-semibold">Standort</div>
-                  <div className="text-gray-300">Deutschland</div>
+                  <div className="text-gray-300">Ulm, Deutschland</div>
                 </div>
               </div>
             </div>

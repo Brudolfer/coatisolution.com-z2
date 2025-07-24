@@ -31,6 +31,16 @@ export function Hero() {
           der Idee bis zur Umsetzung - wir machen es möglich.
         </p>
 
+        {/* Neuer Slogan */}
+        <div className="mb-8 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300">
+            Warum sich mit <span className="text-gray-400">gewöhnlichen Lösungen</span> zufriedengeben?
+          </p>
+          <p className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mt-2">
+            Sie verdienen "The Coati Solution" 🚀
+          </p>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button
             size="lg"
