@@ -1,10 +1,17 @@
+"use client"
+
+import { useActionState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { sendContactEmail } from "@/app/actions/contact"
 
 export function Contact() {
+  const [state, formAction, isPending] = useActionState(sendContactEmail, null)
+
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -29,30 +36,74 @@ export function Contact() {
                 <CardTitle className="text-white text-2xl">Schreiben Sie uns</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {state && (
+                  <Alert
+                    className={
+                      state.success ? "border-green-500/50 bg-green-500/10" : "border-red-500/50 bg-red-500/10"
+                    }
+                  >
+                    {state.success ? (
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                    ) : (
+                      <AlertCircle className="h-4 w-4 text-red-400" />
+                    )}
+                    <AlertDescription className={state.success ? "text-green-300" : "text-red-300"}>
+                      {state.message}
+                    </AlertDescription>
+                  </Alert>
+                )}
+
+                <form action={formAction} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Input
+                      name="name"
+                      placeholder="Ihr Name"
+                      required
+                      disabled={isPending}
+                      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
+                    />
+                    <Input
+                      name="email"
+                      placeholder="Ihre E-Mail"
+                      type="email"
+                      required
+                      disabled={isPending}
+                      className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
+                    />
+                  </div>
                   <Input
-                    placeholder="Ihr Name"
-                    className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                    name="subject"
+                    placeholder="Betreff"
+                    required
+                    disabled={isPending}
+                    className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
                   />
-                  <Input
-                    placeholder="Ihre E-Mail"
-                    type="email"
-                    className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
+                  <Textarea
+                    name="message"
+                    placeholder="Erzählen Sie uns von Ihrem Projekt..."
+                    rows={6}
+                    required
+                    disabled={isPending}
+                    className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
                   />
-                </div>
-                <Input
-                  placeholder="Betreff"
-                  className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
-                />
-                <Textarea
-                  placeholder="Erzählen Sie uns von Ihrem Projekt..."
-                  rows={6}
-                  className="bg-white/5 border-white/20 text-white placeholder:text-gray-400"
-                />
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3">
-                  <Send className="w-4 h-4 mr-2" />
-                  Nachricht Senden
-                </Button>
+                  <Button
+                    type="submit"
+                    disabled={isPending}
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isPending ? (
+                      <>
+                        <div className="w-4 h-4 mr-2 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Wird gesendet...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Nachricht Senden
+                      </>
+                    )}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </div>
