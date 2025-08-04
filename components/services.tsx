@@ -29,14 +29,22 @@ const services = [
   },
   {
     icon: Cloud,
-    title: "Cloud-Deployment",
-    description: "Nahtlose Bereitstellung und Hosting-Lösungen auf AWS, Vercel und anderen Cloud-Plattformen.",
+    title: "Cloud-Lösungen",
+    description:
+      "Zukunftssichere und skalierbare Cloud-Infrastruktur mit modernen Hosting-Lösungen und automatisierten Deployments.",
     color: "from-indigo-500 to-purple-500",
   },
   {
     icon: Zap,
     title: "Performance-Optimierung",
     description: "Blitzschnelle Anwendungen optimiert für Geschwindigkeit, SEO und Benutzererfahrung.",
+    color: "from-cyan-500 to-blue-500",
+  },
+  {
+    icon: Zap,
+    title: "Zukunftssichere Architektur",
+    description:
+      "Skalierbare und wartbare Lösungen, die mit Ihrem Unternehmen wachsen und modernste Standards erfüllen.",
     color: "from-cyan-500 to-blue-500",
   },
 ]

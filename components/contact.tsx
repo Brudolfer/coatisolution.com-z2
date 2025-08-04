@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { Mail, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react"
 import { sendContactEmail } from "@/app/actions/contact"
 
 export function Contact() {
@@ -126,16 +126,6 @@ export function Contact() {
                 <div>
                   <div className="text-white font-semibold">E-Mail</div>
                   <div className="text-gray-300">info@thecoatisolution.com</div>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 flex items-center justify-center">
-                  <Phone className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="text-white font-semibold">Telefon</div>
-                  <div className="text-gray-300">+49 (0) 123 456789</div>
                 </div>
               </div>
 

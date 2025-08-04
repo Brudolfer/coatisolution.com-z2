@@ -2,18 +2,18 @@ import { Badge } from "@/components/ui/badge"
 import { CheckCircle, Code, Database, Cloud } from "lucide-react"
 
 const features = [
-  "Moderne Tech-Stack",
+  "Zukunftssicher & Skalierbar",
   "Responsive Design",
   "SEO Optimiert",
   "Schnelle Performance",
   "Sicher & Zuverlässig",
-  "24/7 Support",
+  "Moderne Technologien",
 ]
 
 const technologies = [
   { name: "Frontend", techs: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-  { name: "Backend", techs: ["FastAPI", "Python", "Node.js", "PostgreSQL"] },
-  { name: "Cloud", techs: ["AWS", "Vercel", "Docker", "CI/CD"] },
+  { name: "Backend", techs: ["CloudHosting", "Python", "Node.js", "PostgreSQL"] },
+  { name: "Cloud", techs: ["Cloud-Lösungen", "Vercel", "Docker", "CI/CD"] },
   { name: "Tools", techs: ["Git", "VS Code", "Figma", "Postman"] },
 ]
 
@@ -84,7 +84,7 @@ export function Features() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">Backend Power</h3>
               <p className="text-gray-300">
-                Skalierbare APIs mit FastAPI und Python, optimierte Datenbanken und sichere Cloud-Infrastruktur.
+                Skalierbare APIs mit modernen Cloud-Lösungen, optimierte Datenbanken und sichere Infrastruktur.
               </p>
             </div>
 
@@ -96,7 +96,7 @@ export function Features() {
               </div>
               <h3 className="text-2xl font-bold text-white mb-3">Cloud Solutions</h3>
               <p className="text-gray-300">
-                Professionelle Bereitstellung auf AWS und anderen Cloud-Plattformen mit automatisierten Deployments.
+                Professionelle Bereitstellung mit modernen Cloud-Lösungen und automatisierten Deployments.
               </p>
             </div>
           </div>

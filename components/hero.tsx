@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Code, BarChart3, Sparkles } from "lucide-react"
 
@@ -44,6 +46,12 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button
             size="lg"
+            onClick={() => {
+              const contactSection = document.getElementById("contact")
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: "smooth" })
+              }
+            }}
             className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
           >
             Projekt Starten
@@ -52,9 +60,15 @@ export function Hero() {
           <Button
             variant="outline"
             size="lg"
+            onClick={() => {
+              const servicesSection = document.getElementById("services")
+              if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: "smooth" })
+              }
+            }}
             className="border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg rounded-full backdrop-blur-sm bg-transparent"
           >
-            Unsere Arbeiten
+            Unsere Leistungen
           </Button>
         </div>
 
