@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Users, Award, Coffee, Heart } from "lucide-react"
+import { Users, Award, Coffee, Heart } from 'lucide-react'
 
 export function About() {
   return (
@@ -40,20 +40,6 @@ export function About() {
                 Entwicklung moderner Webanwendungen bringt er kreative Lösungen und benutzerfreundliche Designs in jedes
                 Projekt.
               </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-500/30">
-                  React
-                </Badge>
-                <Badge variant="secondary" className="bg-sky-500/20 text-sky-300 border-sky-500/30">
-                  TypeScript
-                </Badge>
-                <Badge variant="secondary" className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30">
-                  Next.js
-                </Badge>
-                <Badge variant="secondary" className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
-                  UI/UX Design
-                </Badge>
-              </div>
             </CardContent>
           </Card>
 
@@ -81,20 +67,6 @@ export function About() {
                 skalierbare Lösungen und Systemarchitektur mit einem Fokus auf Performance, Sicherheit und moderne
                 API-Entwicklung.
               </p>
-              <div className="flex flex-wrap gap-2 justify-center">
-                <Badge variant="secondary" className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30">
-                  FastAPI
-                </Badge>
-                <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-500/30">
-                  Python
-                </Badge>
-                <Badge variant="secondary" className="bg-sky-500/20 text-sky-300 border-sky-500/30">
-                  AWS
-                </Badge>
-                <Badge variant="secondary" className="bg-cyan-500/20 text-cyan-300 border-cyan-500/30">
-                  Datenbanken
-                </Badge>
-              </div>
             </CardContent>
           </Card>
         </div>

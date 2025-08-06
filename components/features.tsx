@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Code, Database, Cloud } from "lucide-react"
+import { CheckCircle, Code, Database, Cloud } from 'lucide-react'
 
 const features = [
   "Zukunftssicher & Skalierbar",
@@ -39,24 +39,6 @@ export function Features() {
                 <div key={index} className="flex items-center space-x-2">
                   <CheckCircle className="w-5 h-5 text-blue-400" />
                   <span className="text-gray-300">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-white font-semibold text-lg">Unser Tech-Stack:</h3>
-              {technologies.map((category, index) => (
-                <div key={index} className="flex flex-wrap items-center gap-2">
-                  <span className="text-blue-400 font-medium min-w-[80px]">{category.name}:</span>
-                  {category.techs.map((tech, techIndex) => (
-                    <Badge
-                      key={techIndex}
-                      variant="secondary"
-                      className="bg-blue-500/20 text-blue-300 border-blue-500/30"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
                 </div>
               ))}
             </div>
