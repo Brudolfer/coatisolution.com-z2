@@ -1,0 +1,9 @@
+# A-Record für die Apex-Domain (thecoatisolution.com)
+# Host: @ oder thecoatisolution.com
+# Typ: A
+# Wert: 76.76.21.21
+
+# CNAME-Record für die www-Subdomain (www.thecoatisolution.com)
+# Host: www
+# Typ: CNAME
+# Wert: cname.vercel-dns.com

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Code, BarChart3, Sparkles } from "lucide-react"
+import { ArrowRight, Code, BarChart3, Sparkles } from 'lucide-react'
 
 export function Hero() {
   return (
@@ -25,7 +25,7 @@ export function Hero() {
             Data. Science. Business.
           </span>
           <br />
-          Software-Lösungen Die Funktionieren
+          Software-Lösungen, die funktionieren
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">

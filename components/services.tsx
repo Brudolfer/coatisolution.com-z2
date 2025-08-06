@@ -1,11 +1,11 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, BarChart3, Smartphone, Database, Cloud, Zap } from "lucide-react"
+import { Code, BarChart3, Smartphone, Database, Cloud, Zap } from 'lucide-react'
 
 const services = [
   {
     icon: Code,
     title: "Web-Entwicklung",
-    description: "Maßgeschneiderte Webanwendungen mit modernen Frameworks wie React, Next.js und TypeScript.",
+    description: "Maßgeschneiderte Webanwendungen mit modernen Frameworks.",
     color: "from-blue-500 to-sky-500",
   },
   {
@@ -38,13 +38,6 @@ const services = [
     icon: Zap,
     title: "Performance-Optimierung",
     description: "Blitzschnelle Anwendungen optimiert für Geschwindigkeit, SEO und Benutzererfahrung.",
-    color: "from-cyan-500 to-blue-500",
-  },
-  {
-    icon: Zap,
-    title: "Zukunftssichere Architektur",
-    description:
-      "Skalierbare und wartbare Lösungen, die mit Ihrem Unternehmen wachsen und modernste Standards erfüllen.",
     color: "from-cyan-500 to-blue-500",
   },
 ]
