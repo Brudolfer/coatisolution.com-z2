@@ -40,7 +40,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
     // Professionelle E-Mail an Simon Frey
     await transporter.sendMail({
       from: `"Coati Solutions Kontakt" <${process.env.SMTP_FROM}>`,
-      to: process.env.SMTP_TO,
+      to: `${process.env.SMTP_TO}, info@thecoatisolution.com`,
       replyTo: email,
       subject: `🚀 Neue Projektanfrage: ${subject}`,
       html: `
