@@ -1,4 +1,5 @@
-import { Github, Twitter, Linkedin, Mail } from "lucide-react"
+import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
+import Link from "next/link" // Import Link
 
 export function Footer() {
   return (
@@ -96,6 +97,11 @@ export function Footer() {
                 <a href="#contact" className="hover:text-white transition-colors">
                   Kontakt
                 </a>
+              </li>
+              <li>
+                <Link href="/impressum" className="hover:text-white transition-colors"> {/* Added Impressum Link */}
+                  Impressum
+                </Link>
               </li>
             </ul>
           </div>
