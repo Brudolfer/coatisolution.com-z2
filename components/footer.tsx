@@ -58,24 +58,24 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
+                <Link href="#services" className="hover:text-white transition-colors">
                   Web-Entwicklung
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
+                <Link href="#services" className="hover:text-white transition-colors">
                   Dashboard-Lösungen
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
+                <Link href="#services" className="hover:text-white transition-colors">
                   Mobile Apps
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
+                <Link href="#services" className="hover:text-white transition-colors">
                   Cloud-Lösungen
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -84,22 +84,22 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Unternehmen</h4>
             <ul className="space-y-2 text-gray-300">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <Link href="#about" className="hover:text-white transition-colors">
                   Über Uns
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#features" className="hover:text-white transition-colors">
+                <Link href="#features" className="hover:text-white transition-colors">
                   Technologien
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition-colors">
+                <Link href="#contact" className="hover:text-white transition-colors">
                   Kontakt
-                </a>
+                </Link>
               </li>
               <li>
-                <Link href="/impressum" className="hover:text-white transition-colors"> {/* Added Impressum Link */}
+                <Link href="/impressum" className="hover:text-white transition-colors">
                   Impressum
                 </Link>
               </li>
