@@ -19,8 +19,8 @@ return (
             <h3 className="text-2xl font-semibold text-white mb-4">Angaben gemäß § 5 TMG:</h3>
             <p>
               Simon Frey<br />
-              [Ihre Straße und Hausnummer]<br />
-              [Ihre Postleitzahl und Ort]<br />
+              Mozartstraße 24<br />
+              73079 Süßen<br />
               Deutschland
             </p>
           </section>
@@ -35,6 +35,7 @@ return (
           <section>
             <h3 className="text-2xl font-semibold text-white mb-4">Kontakt:</h3>
             <p>
+              Telefon: 0179 2136982<br />
               E-Mail: info@thecoatisolution.com
             </p>
           </section>
