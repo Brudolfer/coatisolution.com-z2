@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X } from 'lucide-react'
+import Link from "next/link"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -15,14 +16,6 @@ export function Navigation() {
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
-    }
-  }
 
   return (
     <nav
@@ -45,42 +38,26 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("home")}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            <Link href="/" onClick={() => window.scrollTo(0, 0)} className="text-gray-300 hover:text-white transition-colors">
               Home
-            </button>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            </Link>
+            <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">
               Leistungen
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            </Link>
+            <Link href="/#about" className="text-gray-300 hover:text-white transition-colors">
               Über Uns
-            </button>
-            <button
-              onClick={() => scrollToSection("features")}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            </Link>
+            <Link href="/#features" className="text-gray-300 hover:text-white transition-colors">
               Technologien
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-gray-300 hover:text-white transition-colors"
-            >
+            </Link>
+            <Link href="/#contact" className="text-gray-300 hover:text-white transition-colors">
               Kontakt
-            </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
-            >
-              Projekt Starten
-            </Button>
+            </Link>
+            <Link href="/#contact" passHref legacyBehavior>
+              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
+                Projekt Starten
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -100,43 +77,50 @@ export function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <button
-                onClick={() => scrollToSection("home")}
+              <Link
+                href="/"
+                onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Home
-              </button>
-              <button
-                onClick={() => scrollToSection("services")}
+              </Link>
+              <Link
+                href="/#services"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Leistungen
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
+              </Link>
+              <Link
+                href="/#about"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Über Uns
-              </button>
-              <button
-                onClick={() => scrollToSection("features")}
+              </Link>
+              <Link
+                href="/#features"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Technologien
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
+              </Link>
+              <Link
+                href="/#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Kontakt
-              </button>
+              </Link>
               <div className="px-3 py-2">
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
-                >
-                  Projekt Starten
-                </Button>
+                <Link href="/#contact" passHref legacyBehavior>
+                  <Button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                  >
+                    Projekt Starten
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
