@@ -5,7 +5,7 @@ const features = [
   "Zukunftssicher & Skalierbar",
   "Responsive Design",
   "SEO Optimiert",
-  "Test Atomation",
+  "Test Automation",
   "Sicher & Zuverlässig",
   "Agile Projektmethoden",
 ]
