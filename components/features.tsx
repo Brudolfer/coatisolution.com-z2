@@ -1,13 +1,12 @@
-import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Code, Database, Cloud } from 'lucide-react'
+import { CheckCircle, Code, Database, Cloud } from "lucide-react"
 
 const features = [
   "Zukunftssicher & Skalierbar",
   "Responsive Design",
   "SEO Optimiert",
-  "Schnelle Performance",
+  "Test Automation",
   "Sicher & Zuverlässig",
-  "Moderne Technologien",
+  "Agile Projektmethoden",
 ]
 
 const technologies = [
@@ -30,8 +29,9 @@ export function Features() {
               </span>
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Wir entwickeln nicht nur Software – wir schaffen digitale Erlebnisse, die Ergebnisse liefern. Unser Team
-              kombiniert technische Expertise mit kreativer Vision, um Lösungen zu liefern, die Erwartungen übertreffen.
+              Bei uns trifft tiefgehende Frontend- und Backend-Expertise auf fachliches Know-how aus jahrelanger
+              Consulting-Erfahrung. Dieses Zusammenspiel ermöglicht es uns, maßgeschneiderte Lösungen zu entwickeln, die
+              echten Mehrwert für unsere Kunden schaffen – technisch fundiert, praxisnah und zukunftssicher.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">

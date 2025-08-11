@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from 'lucide-react'
+import { Menu, X } from "lucide-react"
 import Link from "next/link"
 
 export function Navigation() {
@@ -38,7 +38,11 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" onClick={() => window.scrollTo(0, 0)} className="text-gray-300 hover:text-white transition-colors">
+            <Link
+              href="/"
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-gray-300 hover:text-white transition-colors"
+            >
               Home
             </Link>
             <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">
@@ -55,7 +59,7 @@ export function Navigation() {
             </Link>
             <Link href="/#contact" passHref legacyBehavior>
               <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
-                Projekt Starten
+                Projekt starten
               </Button>
             </Link>
           </div>
@@ -79,7 +83,10 @@ export function Navigation() {
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link
                 href="/"
-                onClick={() => { window.scrollTo(0, 0); setIsMobileMenuOpen(false); }}
+                onClick={() => {
+                  window.scrollTo(0, 0)
+                  setIsMobileMenuOpen(false)
+                }}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Home
@@ -118,7 +125,7 @@ export function Navigation() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                   >
-                    Projekt Starten
+                    Projekt starten
                   </Button>
                 </Link>
               </div>
