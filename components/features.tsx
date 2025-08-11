@@ -1,10 +1,11 @@
-import { CheckCircle, Code, Database, Cloud } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { CheckCircle, Code, Database, Cloud } from 'lucide-react'
 
 const features = [
   "Zukunftssicher & Skalierbar",
   "Responsive Design",
   "SEO Optimiert",
-  "Test Automation",
+  "Test Atomation",
   "Sicher & Zuverlässig",
   "Agile Projektmethoden",
 ]
@@ -29,9 +30,7 @@ export function Features() {
               </span>
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Bei uns trifft tiefgehende Frontend- und Backend-Expertise auf fachliches Know-how aus jahrelanger
-              Consulting-Erfahrung. Dieses Zusammenspiel ermöglicht es uns, maßgeschneiderte Lösungen zu entwickeln, die
-              echten Mehrwert für unsere Kunden schaffen – technisch fundiert, praxisnah und zukunftssicher.
+              Bei uns trifft tiefgehende Frontend- und Backend-Expertise auf fachliches Know-how aus jahrelanger Consulting-Erfahrung. Dieses Zusammenspiel ermöglicht es uns, maßgeschneiderte Lösungen zu entwickeln, die echten Mehrwert für unsere Kunden schaffen – technisch fundiert, praxisnah und zukunftssicher.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mb-8">
