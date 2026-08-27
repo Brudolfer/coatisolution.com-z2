@@ -37,7 +37,7 @@ export function Hero() {
 
         <div className="mb-8 max-w-2xl mx-auto">
           <p className="text-xl md:text-2xl font-semibold text-white tracking-tight">
-            BI-Ratio — Daten mit dem richtigen Dreh.
+            BI-Ratio. Daten mit dem richtigen Dreh.
           </p>
           <p className="text-base md:text-lg text-gray-400 mt-2">
             Aus Zahlen wird Klarheit. Aus Klarheit wird Vorsprung.
