@@ -10,9 +10,9 @@ export function Footer() {
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-white/10 backdrop-blur-sm rounded-full p-3 border border-white/20">
                 <img
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bi_ratio_logo-DepWSAq1OM0yMbU1kvP5mjBTT26sNg.png"
-                  alt="BI-Ratio Logo"
-                  className="h-10 w-auto"
+                  src="/images/bi-ratio-icon.png"
+                  alt="BI-Ratio"
+                  className="h-10 w-10 rounded-lg"
                 />
               </div>
             </div>

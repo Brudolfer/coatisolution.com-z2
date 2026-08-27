@@ -29,9 +29,9 @@ export function Navigation() {
           <div className="flex items-center space-x-3">
             <div className="bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm rounded-full p-4 border border-white/30 shadow-xl">
               <img
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bi_ratio_logo-DepWSAq1OM0yMbU1kvP5mjBTT26sNg.png"
-                alt="BI-Ratio Logo"
-                className="h-12 w-auto"
+                src="/images/bi-ratio-icon.png"
+                alt="BI-Ratio"
+                className="h-12 w-12 rounded-xl"
               />
             </div>
           </div>

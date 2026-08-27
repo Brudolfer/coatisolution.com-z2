@@ -14,10 +14,12 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="flex items-center justify-center mb-8">
-          <div className="bg-gradient-to-r from-white/25 to-white/15 backdrop-blur-sm rounded-full p-8 border border-white/40 shadow-2xl">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bi_ratio_logo-DepWSAq1OM0yMbU1kvP5mjBTT26sNg.png" alt="BI-Ratio Logo" className="h-20 w-auto" />
-          </div>
+        <div className="mb-10 flex justify-center">
+          <img
+            src="/images/bi-ratio-logo.png"
+            alt="BI-Ratio"
+            className="h-auto w-[min(78vw,34rem)]"
+          />
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
