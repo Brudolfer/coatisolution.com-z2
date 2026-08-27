@@ -26,14 +26,12 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm rounded-full p-4 border border-white/30 shadow-xl">
-              <img
-                src="/images/bi-ratio-icon.png"
-                alt="BI-Ratio"
-                className="h-12 w-12 rounded-xl"
-              />
-            </div>
+          <div className="flex items-center">
+            <img
+              src="/images/bi-ratio-icon.png"
+              alt="BI-Ratio"
+              className="h-12 w-12 rounded-xl"
+            />
           </div>
 
           {/* Desktop Navigation */}
