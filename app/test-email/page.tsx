@@ -26,7 +26,7 @@ export default function TestEmailPage() {
 
 🎨 Wir testen:
 - Moderne Gradient-Hintergründe
-- Coati Logo Integration
+- BI-Ratio Logo Integration
 - Responsive Karten-Layouts
 - Farbkodierte Bereiche
 - Action-Buttons
@@ -103,7 +103,7 @@ Das Test-Team`,
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300">
               <div className="flex items-center space-x-2">
                 <span className="text-blue-400">🐾</span>
-                <span>Coati Logo Integration</span>
+                <span>BI-Ratio Logo Integration</span>
               </div>
               <div className="flex items-center space-x-2">
                 <span className="text-green-400">🎨</span>
@@ -147,7 +147,7 @@ Das Test-Team`,
 
           <div className="text-center">
             <p className="text-gray-400 text-sm">
-              Die Test-E-Mail wird an beide Coati Solutions E-Mail-Adressen gesendet
+              Die Test-E-Mail wird an beide BI-Ratio E-Mail-Adressen gesendet
             </p>
           </div>
         </CardContent>

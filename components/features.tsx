@@ -26,7 +26,7 @@ export function Features() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Warum{" "}
               <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
-                Coati Solutions?
+                BI-Ratio?
               </span>
             </h2>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed">

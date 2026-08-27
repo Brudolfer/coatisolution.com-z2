@@ -39,7 +39,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
 
     // Professionelle E-Mail an Simon Frey
     await transporter.sendMail({
-      from: `"Coati Solutions Kontakt" <${process.env.SMTP_FROM}>`,
+      from: `"BI-Ratio Kontakt" <${process.env.SMTP_FROM}>`,
       to: `${process.env.SMTP_TO}, info@thecoatisolution.com`,
       replyTo: email,
       subject: `🚀 Neue Projektanfrage: ${subject}`,
@@ -49,7 +49,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Neue Kontaktanfrage - Coati Solutions</title>
+          <title>Neue Kontaktanfrage - BI-Ratio</title>
         </head>
         <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); min-height: 100vh;">
           
@@ -73,7 +73,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
                 Neue Projektanfrage! 🎉
               </h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px; font-weight: 500;">
-                Coati Solutions - Data. Science. Business.
+                BI-Ratio - Data. Science. Business.
               </p>
             </div>
             
@@ -180,7 +180,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
                   Neues Geschäft wartet!
                 </h3>
                 <p style="color: #047857; margin: 0; font-size: 14px;">
-                  Zeit, die Coati-Magie zu entfesseln und ein weiteres erfolgreiches Projekt zu starten! 🚀
+                  Zeit, die BI-Ratio-Magie zu entfesseln und ein weiteres erfolgreiches Projekt zu starten! 🚀
                 </p>
               </div>
             </div>
@@ -192,7 +192,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
                 <a href="https://thecoatisolution.com" style="color: #60a5fa; text-decoration: none;">thecoatisolution.com</a> gesendet.
               </p>
               <p style="color: rgba(255,255,255,0.5); font-size: 12px; margin: 10px 0 0 0;">
-                © 2025 Coati Solutions - Data. Science. Business.
+                © 2025 BI-Ratio - Data. Science. Business.
               </p>
             </div>
           </div>
@@ -203,16 +203,16 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
 
     // Bestätigungs-E-Mail an den Absender (auch verbessert)
     await transporter.sendMail({
-      from: `"Coati Solutions" <${process.env.SMTP_FROM}>`,
+      from: `"BI-Ratio" <${process.env.SMTP_FROM}>`,
       to: email,
-      subject: "✅ Ihre Nachricht wurde erfolgreich gesendet - Coati Solutions",
+      subject: "✅ Ihre Nachricht wurde erfolgreich gesendet - BI-Ratio",
       html: `
         <!DOCTYPE html>
         <html lang="de">
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Nachricht erhalten - Coati Solutions</title>
+          <title>Nachricht erhalten - BI-Ratio</title>
         </head>
         <body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); min-height: 100vh;">
           
@@ -230,7 +230,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
                 Nachricht erfolgreich gesendet!
               </h1>
               <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">
-                Coati Solutions
+                BI-Ratio
               </p>
             </div>
             
@@ -241,7 +241,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
               </p>
               
               <p style="color: #374151; line-height: 1.6; margin-bottom: 25px; font-size: 16px;">
-                vielen Dank für Ihr Interesse an Coati Solutions! Wir haben Ihre Nachricht erfolgreich erhalten und werden uns innerhalb von <strong>24 Stunden</strong> bei Ihnen melden.
+                vielen Dank für Ihr Interesse an BI-Ratio! Wir haben Ihre Nachricht erfolgreich erhalten und werden uns innerhalb von <strong>24 Stunden</strong> bei Ihnen melden.
               </p>
               
               <!-- Summary Card -->
@@ -264,7 +264,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
               
               <p style="color: #374151; line-height: 1.6; margin-bottom: 0; font-size: 16px;">
                 Mit freundlichen Grüßen,<br>
-                <strong>Das Coati Solutions Team</strong><br>
+                <strong>Das BI-Ratio Team</strong><br>
                 <em style="color: #6366f1;">Data. Science. Business.</em>
               </p>
             </div>
@@ -272,7 +272,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
             <!-- Footer -->
             <div style="text-align: center; margin-top: 30px; padding: 20px;">
               <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;">
-                © 2025 Coati Solutions - thecoatisolution.com
+                © 2025 BI-Ratio - thecoatisolution.com
               </p>
             </div>
           </div>
