@@ -35,13 +35,12 @@ export function Hero() {
           der Idee bis zur Umsetzung - wir machen es möglich.
         </p>
 
-        {/* Neuer Slogan */}
-        <div className="mb-8 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 max-w-2xl mx-auto">
-          <p className="text-lg text-gray-300">
-            Warum sich mit <span className="text-gray-400">gewöhnlichen Lösungen</span> zufriedengeben?
+        <div className="mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl font-semibold text-white tracking-tight">
+            BI-Ratio — Daten mit dem richtigen Dreh.
           </p>
-          <p className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mt-2">
-            Sie verdienen BI-Ratio
+          <p className="text-base md:text-lg text-gray-400 mt-2">
+            Aus Zahlen wird Klarheit. Aus Klarheit wird Vorsprung.
           </p>
         </div>
 
