@@ -10,9 +10,9 @@ export function Footer() {
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-white/10 backdrop-blur-sm rounded-full p-3 border border-white/20">
                 <img
-                  src="/images/coati-logo.svg"
-                  alt="Coati Solutions Logo"
-                  className="h-10 w-auto brightness-0 invert"
+                  src="/images/bi-ratio-icon.png"
+                  alt="BI-Ratio"
+                  className="h-10 w-10 rounded-lg"
                 />
               </div>
             </div>
@@ -110,14 +110,14 @@ export function Footer() {
         <div className="border-t border-white/10 mt-12 pt-8">
           <div className="text-center mb-4">
             <p className="text-lg font-medium text-white mb-2">
-              Geben Sie sich nicht mit <span className="text-gray-400">gewöhnlichen Lösungen</span> zufrieden.
+              BI-Ratio. Daten mit dem richtigen Dreh.
             </p>
             <p className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
-              Sie suchen "The Coati Solution" ✨
+              Aus Zahlen wird Klarheit. Aus Klarheit wird Vorsprung.
             </p>
           </div>
           <p className="text-gray-300 text-center">
-            © 2025 Coati Solutions. Alle Rechte vorbehalten. Mit ❤️ und modernster Technologie entwickelt.
+            © 2025 BI-Ratio. Alle Rechte vorbehalten. Mit ❤️ und modernster Technologie entwickelt.
           </p>
         </div>
       </div>

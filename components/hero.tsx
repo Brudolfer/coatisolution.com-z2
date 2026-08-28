@@ -14,10 +14,12 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="flex items-center justify-center mb-8">
-          <div className="bg-gradient-to-r from-white/25 to-white/15 backdrop-blur-sm rounded-full p-8 border border-white/40 shadow-2xl">
-            <img src="/images/coati-logo.svg" alt="Coati Solutions Logo" className="h-20 w-auto brightness-0 invert" />
-          </div>
+        <div className="mb-10 flex justify-center">
+          <img
+            src="/images/bi-ratio-logo.png"
+            alt="BI-Ratio"
+            className="h-auto w-[min(78vw,34rem)]"
+          />
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
@@ -33,13 +35,12 @@ export function Hero() {
           der Idee bis zur Umsetzung - wir machen es möglich.
         </p>
 
-        {/* Neuer Slogan */}
-        <div className="mb-8 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 max-w-2xl mx-auto">
-          <p className="text-lg text-gray-300">
-            Warum sich mit <span className="text-gray-400">gewöhnlichen Lösungen</span> zufriedengeben?
+        <div className="mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl font-semibold text-white tracking-tight">
+            BI-Ratio. Daten mit dem richtigen Dreh.
           </p>
-          <p className="text-xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent mt-2">
-            Sie verdienen "The Coati Solution" 🚀
+          <p className="text-base md:text-lg text-gray-400 mt-2">
+            Aus Zahlen wird Klarheit. Aus Klarheit wird Vorsprung.
           </p>
         </div>
 
