@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import Link from "next/link" // Import Link
 
 export function Footer() {
@@ -21,30 +21,6 @@ export function Footer() {
               Web-Entwicklung, Dashboards und maßgeschneiderte Software.
             </p>
             <div className="flex space-x-4">
-              <a
-                href="https://github.com/CoatiSolutions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Github className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://twitter.com/CoatiSolutions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Twitter className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/coati-solutions/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Linkedin className="w-5 h-5 text-white" />
-              </a>
               <a
                 href="mailto:info@thecoatisolution.com"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
