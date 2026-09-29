@@ -51,21 +51,29 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
   }
 
   try {
-    // Gmail SMTP Transporter konfigurieren
+    const smtpHost = process.env.SMTP_HOST
+    const smtpUser = process.env.SMTP_USER
+    const smtpPass = process.env.SMTP_PASS
+    const smtpFrom = process.env.SMTP_FROM
+    const smtpTo = process.env.SMTP_TO
+
+    if (!smtpHost || !smtpUser || !smtpPass || !smtpFrom || !smtpTo) {
+      throw new Error("SMTP configuration is incomplete")
+    }
+
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
+      host: smtpHost,
       port: Number.parseInt(process.env.SMTP_PORT || "587"),
-      secure: false, // true für 465, false für andere Ports
+      secure: Number.parseInt(process.env.SMTP_PORT || "587") === 465,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: smtpUser,
+        pass: smtpPass,
       },
     })
 
-    // Professionelle E-Mail an Simon Frey
     await transporter.sendMail({
-      from: `"BI-Ratio Kontakt" <${process.env.SMTP_FROM}>`,
-      to: `${process.env.SMTP_TO}, info@thecoatisolution.com`,
+      from: `"BI-Ratio Kontakt" <${smtpFrom}>`,
+      to: smtpTo,
       replyTo: email,
       subject: `🚀 Neue Projektanfrage: ${subject}`,
       html: `
