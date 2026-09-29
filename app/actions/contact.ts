@@ -7,6 +7,31 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
   const email = formData.get("email") as string
   const subject = formData.get("subject") as string
   const message = formData.get("message") as string
+  const website = formData.get("website") as string
+  const turnstileToken = formData.get("turnstileToken") as string
+
+  if (website) {
+    return { success: false, message: "Ihre Nachricht konnte nicht gesendet werden." }
+  }
+
+  if (!turnstileToken || !process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY) {
+    return { success: false, message: "Bitte bestätigen Sie die Sicherheitsprüfung." }
+  }
+
+  const turnstileResponse = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      secret: process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY,
+      response: turnstileToken,
+    }),
+    cache: "no-store",
+  })
+  const turnstileResult = (await turnstileResponse.json()) as { success?: boolean }
+
+  if (!turnstileResponse.ok || !turnstileResult.success) {
+    return { success: false, message: "Die Sicherheitsprüfung ist abgelaufen. Bitte versuchen Sie es erneut." }
+  }
 
   // Validierung
   if (!name || !email || !subject || !message) {
@@ -201,7 +226,8 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
       `,
     })
 
-    // Bestätigungs-E-Mail an den Absender (auch verbessert)
+    /* Confirmation emails to form senders are intentionally disabled. */
+    /*
     await transporter.sendMail({
       from: `"BI-Ratio" <${process.env.SMTP_FROM}>`,
       to: email,
@@ -281,10 +307,12 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
       `,
     })
 
+    */
+
     return {
       success: true,
       message:
-        "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Sie erhalten eine Bestätigung per E-Mail und wir melden uns innerhalb von 24 Stunden bei Ihnen.",
+        "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden.",
     }
   } catch (error) {
     console.error("Fehler beim Senden der E-Mail:", error)
