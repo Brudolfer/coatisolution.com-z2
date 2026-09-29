@@ -1,6 +1,7 @@
 "use client"
 
-import { useActionState } from "react"
+import { useActionState, useState } from "react"
+import { Turnstile } from "@marsidev/react-turnstile"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -11,6 +12,7 @@ import { sendContactEmail } from "@/app/actions/contact"
 
 export function Contact() {
   const [state, formAction, isPending] = useActionState(sendContactEmail, null)
+  const [turnstileToken, setTurnstileToken] = useState("")
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8">
@@ -54,6 +56,10 @@ export function Contact() {
                 )}
 
                 <form action={formAction} className="space-y-6">
+                  <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                    <label htmlFor="website">Website</label>
+                    <Input id="website" name="website" tabIndex={-1} autoComplete="off" />
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <Input
                       name="name"
@@ -86,9 +92,17 @@ export function Contact() {
                     disabled={isPending}
                     className="bg-white/5 border-white/20 text-white placeholder:text-gray-400 disabled:opacity-50"
                   />
+                  <Turnstile
+                    siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? ""}
+                    onSuccess={setTurnstileToken}
+                    onExpire={() => setTurnstileToken("")}
+                    onError={() => setTurnstileToken("")}
+                    options={{ action: "contact" }}
+                  />
+                  <input type="hidden" name="turnstileToken" value={turnstileToken} />
                   <Button
                     type="submit"
-                    disabled={isPending}
+                    disabled={isPending || !turnstileToken}
                     className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isPending ? (
