@@ -56,8 +56,12 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
     const smtpPass = process.env.SMTP_PASS
     const smtpFrom = process.env.SMTP_FROM
     const smtpTo = process.env.SMTP_TO
+    const smtpRecipients = [smtpTo, "leon.peter@thecoatisolution.com"]
+      .flatMap((value) => value?.split(",") ?? [])
+      .map((value) => value.trim())
+      .filter(Boolean)
 
-    if (!smtpHost || !smtpUser || !smtpPass || !smtpFrom || !smtpTo) {
+    if (!smtpHost || !smtpUser || !smtpPass || !smtpFrom || smtpRecipients.length === 0) {
       throw new Error("SMTP configuration is incomplete")
     }
 
@@ -73,7 +77,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
 
     await transporter.sendMail({
       from: `"BI-Ratio Kontakt" <${smtpFrom}>`,
-      to: smtpTo,
+      to: smtpRecipients,
       replyTo: email,
       subject: `🚀 Neue Projektanfrage: ${subject}`,
       html: `
