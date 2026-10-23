@@ -39,6 +39,9 @@ export function Navigation() {
             <Link href="/" onClick={() => window.scrollTo(0, 0)} className="text-gray-300 hover:text-white transition-colors">
               Home
             </Link>
+            <Link href="/#insights" className="text-gray-300 hover:text-white transition-colors">
+              Einblicke
+            </Link>
             <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">
               Leistungen
             </Link>
@@ -81,6 +84,13 @@ export function Navigation() {
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Home
+              </Link>
+              <Link
+                href="/#insights"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
+              >
+                Einblicke
               </Link>
               <Link
                 href="/#services"

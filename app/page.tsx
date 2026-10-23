@@ -1,6 +1,8 @@
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
 import { About } from "@/components/about"
+import { Showcase } from "@/components/showcase"
+import { Modules } from "@/components/modules"
 import { Features } from "@/components/features"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
@@ -12,6 +14,10 @@ export default function Home() {
       <Navigation />
       <div id="home">
         <Hero />
+      </div>
+      <Showcase />
+      <div id="modules">
+        <Modules />
       </div>
       <div id="services">
         <Services />
