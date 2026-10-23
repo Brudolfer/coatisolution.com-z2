@@ -26,8 +26,7 @@
 .bx .eyebrow i{width:.5rem;height:.5rem;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
 .bx h1{font-size:clamp(2.2rem,4vw,3.7rem);line-height:1.08;color:#fff;font-weight:800;letter-spacing:-.035em;margin-bottom:1.4rem}
 .bx .lead{font-size:1.25rem;color:#cbd5e1;max-width:34rem;margin-bottom:1.6rem}
-.bx .tag{font-size:1.25rem;font-weight:600;color:#fff;letter-spacing:-.01em}
-.bx .tag-sub{color:var(--muted);margin:.2rem 0 2rem}
+.bx .tag-sub{color:#fff;font-weight:600;margin:.2rem 0 2rem}
 .bx .cta{display:flex;gap:1rem;flex-wrap:wrap}
 .bx .chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2.2rem}
 .bx .chips span{padding:.45rem .9rem;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:.88rem;color:#e2e8f0;backdrop-filter:blur(6px)}
