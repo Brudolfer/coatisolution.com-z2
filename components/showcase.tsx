@@ -87,41 +87,26 @@ const hoursText = (value: number, sign = false) =>
 
 function timesheet(): string {
   const weekdays = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+  // Aktuelle Woche: Montag 19. bis Sonntag 25. Oktober 2026, heute ist der 21.
   const today = 21
   const soll = 8
-  const pool = [9, 8.5, 9, 8.5, 9.5, 9]
+  const booked: Record<number, number> = { 19: 8.5, 20: 9, 21: 8.5 }
   const cells: string[] = []
   let ist = 0
   let sollToDate = 0
-  let open = 0
-  let absent = 0
-  for (let i = 0; i < 35; i += 1) {
-    const day = i - 2 // Oktober 2026 beginnt an einem Donnerstag
-    if (day < 1 || day > 31) {
-      cells.push('<span aria-hidden="true"></span>')
-      continue
-    }
-    const weekend = i % 7 >= 5
-    const vacation = day >= 12 && day <= 14
-    const locked = day < 16 ? '<em title="freigegeben">✓</em>' : ""
-    const date = `<span class="d-date"><b>${day}</b>${locked}</span>`
+  for (let day = 19; day <= 25; day += 1) {
+    const weekend = day >= 24
+    const date = (locked: boolean) => `<span class="d-date"><b>${day}</b><i>${day}.10.</i>${locked ? '<em title="freigegeben">✓</em>' : ""}</span>`
     if (weekend) {
-      cells.push(`<div class="td free"><span class="d-date"><b>${day}</b></span><span class="d-label">frei</span><span class="d-soll">&nbsp;</span></div>`)
-    } else if (vacation) {
-      absent += 1
-      cells.push(`<div class="td abs">${date}<span class="d-label">Urlaub</span><span class="d-soll">&nbsp;</span></div>`)
+      cells.push(`<div class="td free">${date(false)}<span class="d-label">frei</span><span class="d-soll">&nbsp;</span></div>`)
     } else if (day > today) {
-      cells.push(`<div class="td fut">${date}<span class="d-label">—</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:0"></i></span></div>`)
-    } else if (day === 7) {
-      open += 1
-      sollToDate += soll
-      cells.push(`<div class="td opn">${date}<span class="d-label">offen</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:0"></i></span></div>`)
+      cells.push(`<div class="td fut">${date(false)}<span class="d-label">—</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:0"></i></span></div>`)
     } else {
-      const hours = pool[day % 6]
+      const hours = booked[day]
       ist += hours
       sollToDate += soll
       cells.push(
-        `<div class="td ok${day === today ? " today" : ""}">${date}<span class="d-label">${hoursText(hours)}</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:${Math.min(100, (hours / soll) * 100)}%"></i></span></div>`,
+        `<div class="td ok${day === today ? " today" : ""}">${date(day < today)}<span class="d-label">${hoursText(hours)}</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:${Math.min(100, (hours / soll) * 100)}%"></i></span></div>`,
       )
     }
   }
@@ -131,21 +116,21 @@ function timesheet(): string {
     .map((name, i) => `<span class="${i === 0 ? "on" : ""}">${name}</span>`)
     .join("")
   const periods = ["Aktuelle Woche", "Letzte Woche", "Aktueller Monat", "Letzter Monat"]
-    .map((name) => `<span class="${name === "Aktueller Monat" ? "on" : ""}">${name}</span>`)
+    .map((name) => `<span class="${name === "Aktuelle Woche" ? "on" : ""}">${name}</span>`)
     .join("")
   return (
     `<div class="mh ts-head"><div><h3>Zeiterfassung</h3>` +
-    `<ul class="ts-stats"><li class="${saldo >= 0 ? "plus" : "minus"}"><span>Zeitkonto</span><b>${hoursText(saldo, true)}</b></li><li><span>Resturlaub</span><b>17 Tage</b></li></ul></div>` +
+    `<ul class="ts-stats"><li class="plus"><span>Zeitkonto</span><b>${hoursText(14.5, true)}</b></li><li><span>Resturlaub</span><b>17 Tage</b></li></ul></div>` +
     `<div style="display:flex;gap:.5rem"><span class="pill">Urlaub / Abwesenheit</span><span class="pill pri">+ Zeit buchen</span></div></div>` +
     `<div class="ts-tabs">${tabs}</div>` +
-    `<div class="ts-filter"><div class="seg">${periods}</div><span class="range">01.10.2026 – 31.10.2026</span></div>` +
+    `<div class="ts-filter"><div class="seg">${periods}</div><span class="range">19.10.2026 – 25.10.2026</span></div>` +
     `<div class="ts-kpis">` +
     `<div class="tk lead"><small>Gearbeitet</small><b>${hoursText(ist)}</b><div class="prog"><i style="width:${share.toFixed(0)}%"></i></div><em>von ${hoursText(sollToDate)} Soll bis heute</em></div>` +
     `<div class="tk"><small>Saldo</small><b>${hoursText(saldo, true)}</b><em class="${saldo >= 0 ? "up" : "down"}">${saldo >= 0 ? "über dem Soll" : "unter dem Soll"}</em></div>` +
-    `<div class="tk"><small>Offene Tage</small><b>${open}</b><em class="${open > 0 ? "down" : "up"}">Arbeitstage ohne Buchung</em></div>` +
-    `<div class="tk"><small>Abwesend</small><b>${absent}</b><em>Tage · Soll gesamt ${hoursText(152)}</em></div>` +
+    `<div class="tk"><small>Offene Tage</small><b>0</b><em class="up">alles gebucht</em></div>` +
+    `<div class="tk"><small>Abwesend</small><b>0</b><em>Tage · Soll gesamt ${hoursText(40)}</em></div>` +
     `</div>` +
-    `<div class="ts-card"><div class="ts-bar"><h5>Kalendertage <span class="cnt">31</span></h5>` +
+    `<div class="ts-card"><div class="ts-bar"><h5>Kalendertage <span class="cnt">7</span></h5>` +
     `<ul class="ts-legend"><li class="ok">gebucht</li><li class="opn">offen</li><li class="abs">Urlaub / Abwesenheit</li><li class="free">frei</li></ul></div>` +
     `<div class="ts-cal">${weekdays.map((w) => `<span class="wd">${w}</span>`).join("")}${cells.join("")}</div></div>`
   )
@@ -218,7 +203,7 @@ const SCREENS: Screen[] = [
       `<div class="chat">
         <div class="msg q">Wie hat sich die Auslastung im Team Süd in den letzten sechs Monaten entwickelt?</div>
         <div class="msg a"><div class="who">Daten-Agent</div>Die Auslastung im Team Süd ist seit Mai von 74 % auf 85 % gestiegen. Der größte Sprung liegt im August, nachdem zwei Projekte gestartet sind.
-          <div style="margin-top:.8rem">${bars([["Mai", 74], ["Jun", 76], ["Jul", 78], ["Aug", 84], ["Sep", 85], ["Okt", 85]], 440, 90)}</div></div>
+          <div style="margin-top:.8rem">${bars([["Mai", 74], ["Jun", 76], ["Jul", 78], ["Aug", 84], ["Sep", 85], ["Okt", 85]], 440, 60)}</div></div>
         <div class="msg q">Welche Projekte tragen dazu am meisten bei?</div>
         <div class="msg a"><div class="who">Daten-Agent</div>Dashboard Vertrieb (P-1042) mit 412 Stunden und Datenanbindung ERP (P-1017) mit 268 Stunden.</div></div>`,
   },
