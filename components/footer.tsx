@@ -93,7 +93,7 @@ export function Footer() {
             </p>
           </div>
           <p className="text-gray-300 text-center">
-            © 2025 BI-Ratio. Alle Rechte vorbehalten. Mit ❤️ und modernster Technologie entwickelt.
+            © BI-Ratio. Alle Rechte vorbehalten. Mit ❤️ und modernster Technologie entwickelt.
           </p>
         </div>
       </div>
