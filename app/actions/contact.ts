@@ -229,7 +229,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
                 <a href="https://thecoatisolution.com" style="color: #60a5fa; text-decoration: none;">thecoatisolution.com</a> gesendet.
               </p>
               <p style="color: rgba(255,255,255,0.5); font-size: 12px; margin: 10px 0 0 0;">
-                © 2025 BI-Ratio - Data. Science. Business.
+                © BI-Ratio - Data. Science. Business.
               </p>
             </div>
           </div>
@@ -310,7 +310,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
             <!-- Footer -->
             <div style="text-align: center; margin-top: 30px; padding: 20px;">
               <p style="color: rgba(255,255,255,0.7); font-size: 14px; margin: 0;">
-                © 2025 BI-Ratio - thecoatisolution.com
+                © BI-Ratio - thecoatisolution.com
               </p>
             </div>
           </div>

@@ -18,7 +18,7 @@ export function Hero() {
             <h1>
               <span className="grad">Data. Science. Business.</span>
               <br />
-              Software-Lösungen, die funktionieren
+              Daten mit dem richtigen Dreh
             </h1>
 
             <p className="lead">
@@ -26,7 +26,6 @@ export function Hero() {
               Von der Idee bis zur Umsetzung - wir machen es möglich.
             </p>
 
-            <p className="tag">BI-Ratio. Daten mit dem richtigen Dreh.</p>
             <p className="tag-sub">Aus Zahlen wird Klarheit. Aus Klarheit wird Vorsprung.</p>
 
             <div className="cta">

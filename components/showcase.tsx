@@ -82,33 +82,72 @@ function donut(parts: [string, number, string][]): string {
   return `<svg viewBox="0 0 120 120" width="110" height="110"><circle cx="60" cy="60" r="${r}" fill="none" stroke="rgba(148,163,184,.14)" stroke-width="16"/>${arcs}<text x="60" y="58" text-anchor="middle" fill="#f7fbff" font-size="19" font-weight="700">${Math.round((parts[0][1] / total) * 100)}%</text><text x="60" y="73" text-anchor="middle" fill="#8da2b6" font-size="8">${parts[0][0]}</text></svg>`
 }
 
+const hoursText = (value: number, sign = false) =>
+  `${sign && value > 0 ? "+ " : sign && value < 0 ? "− " : ""}${Math.abs(value).toFixed(1).replace(".", ",")} h`
+
 function timesheet(): string {
   const weekdays = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
   const today = 21
-  const pool = [8, 8, 7.5, 8, 8.5, 8]
+  const soll = 8
+  const pool = [9, 8.5, 9, 8.5, 9.5, 9]
   const cells: string[] = []
+  let ist = 0
+  let sollToDate = 0
+  let open = 0
+  let absent = 0
   for (let i = 0; i < 35; i += 1) {
     const day = i - 2 // Oktober 2026 beginnt an einem Donnerstag
     if (day < 1 || day > 31) {
-      cells.push('<div class="day off"></div>')
+      cells.push('<span aria-hidden="true"></span>')
       continue
     }
     const weekend = i % 7 >= 5
-    const vacation = day >= 12 && day <= 16
-    if (weekend) cells.push(`<div class="day off"><small>${day}</small></div>`)
-    else if (vacation) cells.push(`<div class="day vac"><small>${day}</small><b>Urlaub</b></div>`)
-    else if (day > today) cells.push(`<div class="day"><small>${day}</small></div>`)
-    else {
+    const vacation = day >= 12 && day <= 14
+    const locked = day < 16 ? '<em title="freigegeben">✓</em>' : ""
+    const date = `<span class="d-date"><b>${day}</b>${locked}</span>`
+    if (weekend) {
+      cells.push(`<div class="td free"><span class="d-date"><b>${day}</b></span><span class="d-label">frei</span><span class="d-soll">&nbsp;</span></div>`)
+    } else if (vacation) {
+      absent += 1
+      cells.push(`<div class="td abs">${date}<span class="d-label">Urlaub</span><span class="d-soll">&nbsp;</span></div>`)
+    } else if (day > today) {
+      cells.push(`<div class="td fut">${date}<span class="d-label">—</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:0"></i></span></div>`)
+    } else if (day === 7) {
+      open += 1
+      sollToDate += soll
+      cells.push(`<div class="td opn">${date}<span class="d-label">offen</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:0"></i></span></div>`)
+    } else {
       const hours = pool[day % 6]
+      ist += hours
+      sollToDate += soll
       cells.push(
-        `<div class="day ok ${day === today ? "today" : ""}" style="--w:${Math.min(100, (hours / 8.5) * 100)}%"><small>${day}</small><b>${String(hours).replace(".", ",")} h</b></div>`,
+        `<div class="td ok${day === today ? " today" : ""}">${date}<span class="d-label">${hoursText(hours)}</span><span class="d-soll">Soll ${hoursText(soll)}</span><span class="d-meter"><i style="width:${Math.min(100, (hours / soll) * 100)}%"></i></span></div>`,
       )
     }
   }
+  const saldo = ist - sollToDate
+  const share = Math.min(100, (ist / sollToDate) * 100)
+  const tabs = ["Erfassung", "Anträge", "Zeitkonto"]
+    .map((name, i) => `<span class="${i === 0 ? "on" : ""}">${name}</span>`)
+    .join("")
+  const periods = ["Aktuelle Woche", "Letzte Woche", "Aktueller Monat", "Letzter Monat"]
+    .map((name) => `<span class="${name === "Aktueller Monat" ? "on" : ""}">${name}</span>`)
+    .join("")
   return (
-    head("Zeiterfassung", "Arbeitszeit buchen und Zeitkonto verfolgen", '<span class="pill">Oktober 2026</span><span class="pill pri">+ Buchung</span>') +
-    `<div class="stats"><div class="stat">Soll<b>168,0 h</b></div><div class="stat">Ist<b>154,5 h</b></div><div class="stat">Saldo<b class="up">+ 6,5 h</b></div><div class="stat">Resturlaub<b>17 Tage</b></div></div>` +
-    `<div class="cal">${weekdays.map((w) => `<div class="dh">${w}</div>`).join("")}${cells.join("")}</div>`
+    `<div class="mh ts-head"><div><h3>Zeiterfassung</h3>` +
+    `<ul class="ts-stats"><li class="${saldo >= 0 ? "plus" : "minus"}"><span>Zeitkonto</span><b>${hoursText(saldo, true)}</b></li><li><span>Resturlaub</span><b>17 Tage</b></li></ul></div>` +
+    `<div style="display:flex;gap:.5rem"><span class="pill">Urlaub / Abwesenheit</span><span class="pill pri">+ Zeit buchen</span></div></div>` +
+    `<div class="ts-tabs">${tabs}</div>` +
+    `<div class="ts-filter"><div class="seg">${periods}</div><span class="range">01.10.2026 – 31.10.2026</span></div>` +
+    `<div class="ts-kpis">` +
+    `<div class="tk lead"><small>Gearbeitet</small><b>${hoursText(ist)}</b><div class="prog"><i style="width:${share.toFixed(0)}%"></i></div><em>von ${hoursText(sollToDate)} Soll bis heute</em></div>` +
+    `<div class="tk"><small>Saldo</small><b>${hoursText(saldo, true)}</b><em class="${saldo >= 0 ? "up" : "down"}">${saldo >= 0 ? "über dem Soll" : "unter dem Soll"}</em></div>` +
+    `<div class="tk"><small>Offene Tage</small><b>${open}</b><em class="${open > 0 ? "down" : "up"}">Arbeitstage ohne Buchung</em></div>` +
+    `<div class="tk"><small>Abwesend</small><b>${absent}</b><em>Tage · Soll gesamt ${hoursText(152)}</em></div>` +
+    `</div>` +
+    `<div class="ts-card"><div class="ts-bar"><h5>Kalendertage <span class="cnt">31</span></h5>` +
+    `<ul class="ts-legend"><li class="ok">gebucht</li><li class="opn">offen</li><li class="abs">Urlaub / Abwesenheit</li><li class="free">frei</li></ul></div>` +
+    `<div class="ts-cal">${weekdays.map((w) => `<span class="wd">${w}</span>`).join("")}${cells.join("")}</div></div>`
   )
 }
 
