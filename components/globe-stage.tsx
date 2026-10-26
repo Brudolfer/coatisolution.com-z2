@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useRef, type CSSProperties } from "react"
+import { useEffect, useRef, useState, type CSSProperties } from "react"
+import { createPortal } from "react-dom"
 
 import { BI_MODULES } from "@/lib/bi-modules"
 import { LAND_MASK_B64 } from "@/lib/land-mask"
@@ -40,13 +41,13 @@ function toVec(lat: number, lon: number): Vec {
 }
 
 /** Gleichmäßig verteilte Punkte, die auf Land liegen. */
-function landPoints(): Vec[] {
+function landPoints(step: number): Vec[] {
   const raw = atob(LAND_MASK_B64)
   const bits = new Uint8Array(raw.length)
   for (let i = 0; i < raw.length; i += 1) bits[i] = raw.charCodeAt(i)
   const points: Vec[] = []
-  for (let lat = -84; lat <= 84; lat += STEP_DEG) {
-    const count = Math.max(1, Math.round((360 * Math.cos((lat * Math.PI) / 180)) / STEP_DEG))
+  for (let lat = -84; lat <= 84; lat += step) {
+    const count = Math.max(1, Math.round((360 * Math.cos((lat * Math.PI) / 180)) / step))
     for (let i = 0; i < count; i += 1) {
       const lon = -180 + ((i + 0.5) * 360) / count
       const x = Math.min(359, Math.floor(lon + 180))
@@ -78,6 +79,12 @@ export function GlobeStage() {
   const stageRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const planetRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [active, setActive] = useState<number | null>(null)
+  const activeRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    activeRef.current = active
+  }, [active])
 
   useEffect(() => {
     const stage = stageRef.current
@@ -86,7 +93,8 @@ export function GlobeStage() {
     if (!stage || !canvas || !ctx) return
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    const land = landPoints()
+    const compact = window.innerWidth < 700
+    const land = landPoints(compact ? 2.6 : STEP_DEG)
     const cities = CITIES.map(([lat, lon]) => toVec(lat, lon))
     const routes = ROUTES.map(([from, to], index) => {
       const a = cities[from]
@@ -106,10 +114,11 @@ export function GlobeStage() {
     let dragging = false
     let lastX = 0
     let lastY = 0
-    let frozen = false
+    let hovering = false
     let orbitTime = 0
     let last = performance.now()
     let frame = 0
+    let running = false
 
     function resize() {
       if (!canvas || !ctx) return
@@ -121,7 +130,7 @@ export function GlobeStage() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
       cx = width / 2
       cy = height / 2
-      radius = Math.min(width * 0.29, height * 0.37)
+      radius = width < 560 ? Math.min(width * 0.27, height * 0.32) : Math.min(width * 0.29, height * 0.37)
       if (reduced) {
         draw(performance.now())
         placePlanets()
@@ -179,7 +188,7 @@ export function GlobeStage() {
       }
 
       // Landpunkte
-      const size = Math.max(1.1, radius / 230)
+      const size = Math.max(compact ? 1.5 : 1.1, radius / 230)
       for (const v of land) {
         const p = project(v, cosY, sinY, cosX, sinX)
         const px = cx + p[0] * radius
@@ -284,17 +293,19 @@ export function GlobeStage() {
       const cosR = Math.cos(rotation)
       const sinR = Math.sin(rotation)
       const narrow = width < 560
+      const current = activeRef.current
       planetRefs.current.forEach((el, index) => {
         if (!el) return
         const angle = orbitTime * 0.16 + (index * 2 * Math.PI) / BI_MODULES.length
-        const ox = Math.cos(angle) * radius * (narrow ? 1.12 : 1.34)
-        const oy = Math.sin(angle) * radius * (narrow ? 0.36 : 0.44)
+        const ox = Math.cos(angle) * radius * (narrow ? 1.42 : 1.34)
+        const oy = Math.sin(angle) * radius * (narrow ? 0.62 : 0.44)
         const x = cx + ox * cosR - oy * sinR
         const y = cy + ox * sinR + oy * cosR
         const depth = Math.sin(angle)
         const scale = 0.74 + (0.26 * (depth + 1)) / 2
-        el.style.transform = `translate(${(x - 48).toFixed(1)}px, ${(y - 48).toFixed(1)}px) scale(${scale.toFixed(3)})`
-        el.style.zIndex = depth > 0 ? "3" : "0"
+        const half = el.offsetWidth / 2
+        el.style.transform = `translate(${(x - half).toFixed(1)}px, ${(y - half).toFixed(1)}px) scale(${scale.toFixed(3)})`
+        el.style.zIndex = current === index ? "60" : depth > 0 ? "3" : "0"
         el.style.opacity = depth > 0 ? "1" : "0.8"
       })
     }
@@ -303,13 +314,25 @@ export function GlobeStage() {
       const delta = Math.min(0.05, (now - last) / 1000)
       last = now
       if (!dragging) yaw += delta * 0.05
-      if (!frozen) orbitTime += delta
+      if (!hovering && activeRef.current === null) orbitTime += delta
       draw(now)
       placePlanets()
+      if (running) frame = requestAnimationFrame(tick)
+    }
+
+    function start() {
+      if (running || reduced) return
+      running = true
+      last = performance.now()
       frame = requestAnimationFrame(tick)
+    }
+    function stop() {
+      running = false
+      cancelAnimationFrame(frame)
     }
 
     function onDown(event: PointerEvent) {
+      setActive(null)
       dragging = true
       lastX = event.clientX
       lastY = event.clientY
@@ -326,11 +349,11 @@ export function GlobeStage() {
     function onUp() {
       dragging = false
     }
-    const freeze = () => {
-      frozen = true
+    const freeze = (event: PointerEvent) => {
+      if (event.pointerType === "mouse") hovering = true
     }
     const unfreeze = () => {
-      frozen = false
+      hovering = false
     }
 
     const planets = planetRefs.current.filter((el): el is HTMLDivElement => el !== null)
@@ -346,10 +369,25 @@ export function GlobeStage() {
     resize()
     const observer = new ResizeObserver(resize)
     observer.observe(canvas)
-    if (!reduced) frame = requestAnimationFrame(tick)
+    // Nur rechnen, solange der Globus im Bild ist.
+    const visibility = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !document.hidden) start()
+      else {
+        stop()
+        setActive(null)
+      }
+    })
+    visibility.observe(stage)
+    const onVisibility = () => {
+      if (document.hidden) stop()
+      else if (stage.getBoundingClientRect().bottom > 0) start()
+    }
+    document.addEventListener("visibilitychange", onVisibility)
 
     return () => {
-      cancelAnimationFrame(frame)
+      stop()
+      visibility.disconnect()
+      document.removeEventListener("visibilitychange", onVisibility)
       observer.disconnect()
       planets.forEach((el) => {
         el.removeEventListener("pointerenter", freeze)
@@ -380,7 +418,10 @@ export function GlobeStage() {
           ref={(el) => {
             planetRefs.current[index] = el
           }}
-          className="planet"
+          className={`planet${active === index ? " is-active" : ""}`}
+          onClick={() => {
+            if (window.matchMedia("(hover: none)").matches) setActive((value) => (value === index ? null : index))
+          }}
           style={
             {
               "--hi": module.colors[0],
@@ -410,6 +451,32 @@ export function GlobeStage() {
           </div>
         </div>
       ))}
+      {active !== null &&
+        createPortal(
+          <div className="bx">
+            <div
+              className="sheet"
+              role="dialog"
+              aria-label={BI_MODULES[active].title}
+              style={{ "--hi": BI_MODULES[active].colors[0], "--glow": BI_MODULES[active].colors[3] } as CSSProperties}
+            >
+              <button type="button" className="sheet-close" aria-label="Schließen" onClick={() => setActive(null)}>
+                ×
+              </button>
+              <h4>{BI_MODULES[active].title}</h4>
+              <p>{BI_MODULES[active].summary}</p>
+              <ul>
+                {BI_MODULES[active].points.map(([name, text]) => (
+                  <li key={name}>
+                    {name}
+                    <span>{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>,
+          document.body,
+        )}
     </div>
   )
 }
