@@ -265,6 +265,15 @@
 .bx .cols{grid-template-columns:1fr}
 .bx .win{transform:none}
 }
+@media(max-width:700px){
+.bx .panel{overflow-x:auto}
+.bx table{font-size:.72rem}
+.bx th,.bx td{padding:.5rem .3rem}
+.bx th{font-size:.58rem;letter-spacing:.03em}
+.bx th:nth-child(2),.bx td:nth-child(2){display:none}
+.bx td.n,.bx th.n{white-space:nowrap}
+.bx .bar{min-width:1.5rem}
+}
 /* Module */
 .bx .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .bx .mod{padding:1.7rem;border:1px solid var(--line);border-radius:1.2rem;background:var(--card);backdrop-filter:blur(8px);transition:.3s;position:relative;overflow:hidden}
