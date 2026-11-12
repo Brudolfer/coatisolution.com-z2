@@ -229,14 +229,17 @@ function outgoing(): string {
       )
       .join("")}</div>` +
     `<article class="paper">` +
-    `<header><div><small>Rechnung</small><b>RE-2026-0142</b></div><span>Muster GmbH</span></header>` +
-    `<p class="paper-to"><span>An</span>Nordlicht AG<br>Hafenstraße 12<br>20457 Hamburg</p>` +
-    `<table><thead><tr><th>Leistung</th><th class="n">Betrag</th></tr></thead><tbody>` +
-    `<tr><td>Beratung Controlling<span class="fine">12 Std</span></td><td class="n">1.440,00 €</td></tr>` +
-    `<tr><td>Dashboard Vertrieb<span class="fine">Pauschale</span></td><td class="n">2.800,00 €</td></tr>` +
-    `</tbody></table>` +
-    `<dl><div><dt>Netto</dt><dd>4.240,00 €</dd></div><div><dt>USt 19 %</dt><dd>805,60 €</dd></div><div class="sum"><dt>Brutto</dt><dd>5.045,60 €</dd></div></dl>` +
-    `<footer>${tag("info", "XRechnung · EN 16931")} <span>Zahlbar bis 11.11.2026</span></footer>` +
+    `<div class="gold"></div>` +
+    `<header class="inv-head"><p class="brand">Muster GmbH</p><h4>Rechnung</h4><div class="meta"><strong>Nr. RE-2026-0142</strong><p>12.10.2026</p></div></header>` +
+    `<div class="addrs"><div><h5>Kunde</h5><p>Nordlicht AG</p><p>Hafenstraße 12</p><p>20457 Hamburg</p></div>` +
+    `<div><h5>Rechnungssteller</h5><p>Muster GmbH</p><p>Kai 4</p><p>20457 Hamburg</p><p>USt-IdNr.: DE123456789</p></div></div>` +
+    `<section class="pos"><h5>Positionen</h5><table><thead><tr><th>Pos.</th><th>Leistung</th><th class="n">Menge</th><th class="n">Preis</th><th class="n">USt.</th><th class="n">Summe</th></tr></thead><tbody>` +
+    `<tr><td>1</td><td>Beratung Controlling</td><td class="n">12 Std</td><td class="n">120,00 €</td><td class="n">19 %</td><td class="n">1.440,00 €</td></tr>` +
+    `<tr><td>2</td><td>Dashboard Vertrieb</td><td class="n">1 Pauschale</td><td class="n">2.800,00 €</td><td class="n">19 %</td><td class="n">2.800,00 €</td></tr>` +
+    `</tbody></table></section>` +
+    `<div class="sum"><table><tbody><tr><td>Netto</td><td>4.240,00 €</td></tr><tr><td>USt 19 %</td><td>805,60 €</td></tr><tr class="total"><td>Gesamtbetrag</td><td>5.045,60 €</td></tr></tbody></table></div>` +
+    `<div class="pay"><h5>Zahlungsinformation</h5><p>Bitte überweisen Sie <strong>5.045,60 €</strong> bis spätestens <strong>11.11.2026</strong> unter Angabe des Verwendungszwecks „<strong>RE-2026-0142</strong>“ an IBAN <strong>DE89 3704 0044 0532 0130 00</strong>.</p><p>Überweisung · XRechnung</p></div>` +
+    `<footer>Muster GmbH · USt-IdNr.: DE123456789 · Bankverbindung: DE89 3704 0044 0532 0130 00</footer>` +
     `</article></div>`
   )
 }
