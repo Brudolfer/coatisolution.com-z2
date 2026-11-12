@@ -26,6 +26,20 @@ export const BI_MODULES: BiModule[] = [
     ],
   },
   {
+    value: "Rechnung",
+    label: "Management",
+    title: "Rechnungsmanagement",
+    summary: "Eingang und Ausgang, inklusive E-Rechnung nach EN 16931.",
+    colors: ["#fda4af", "#e11d48", "#4c0519", "rgba(244,63,94,.55)"],
+    ring: false,
+    points: [
+      ["Eingangsrechnungen", "Belege aus Postfach und Upload prüfen und verbuchen"],
+      ["Ausgangsrechnungen", "Rechnungen schreiben und als E-Rechnung ausstellen"],
+      ["XRechnung und ZUGFeRD", "Dazu Factur-X und Peppol, die Formate ab 2027"],
+      ["Direkt aus dem XML", "Strukturierte Rechnungen werden ohne Abtippen gelesen"],
+    ],
+  },
+  {
     value: "Budget",
     label: "Planung",
     title: "Budgetierung",
