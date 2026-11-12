@@ -167,7 +167,7 @@ function tag(kind: string, text: string): string {
 
 /** Formate, die das BMF als E-Rechnung nach EN 16931 anerkennt. */
 function standards(): string {
-  return `<div class="std"><b>E-Rechnung</b><span>XRechnung</span><span>ZUGFeRD</span><span>Factur-X</span><span>Peppol</span><em>EN 16931, bereit für 2027</em></div>`
+  return `<div class="std"><b>E-Rechnung</b><span>XRechnung</span><span>ZUGFeRD</span><span>Factur-X</span><em>EN 16931, bereit für 2027</em></div>`
 }
 
 function inbox(): string {

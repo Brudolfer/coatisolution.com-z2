@@ -35,7 +35,7 @@ export const BI_MODULES: BiModule[] = [
     points: [
       ["Eingangsrechnungen", "Belege aus Postfach und Upload prüfen und verbuchen"],
       ["Ausgangsrechnungen", "Rechnungen schreiben und als E-Rechnung ausstellen"],
-      ["XRechnung und ZUGFeRD", "Dazu Factur-X und Peppol, die Formate ab 2027"],
+      ["XRechnung und ZUGFeRD", "Dazu Factur-X, die Formate ab 2027"],
       ["Direkt aus dem XML", "Strukturierte Rechnungen werden ohne Abtippen gelesen"],
     ],
   },
