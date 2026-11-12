@@ -9,6 +9,8 @@ import { useEffect, useState } from "react"
 
 const NAV: [string, string[]][] = [
   ["Personalmanagement", ["Zeiterfassung", "Leistungserfassung", "Auswertung", "Reisekosten"]],
+  ["Rechnungen", ["Eingang", "Ausgang"]],
+  ["Cash-Management", ["Liquidität"]],
   ["Dashboards", ["Performance", "Ressourcen"]],
   ["Budgetierung", ["Haushalte", "Haushaltsbuch"]],
 ]
@@ -159,6 +161,114 @@ function evaluation(): string {
   )
 }
 
+function tag(kind: string, text: string): string {
+  return `<span class="tag is-${kind}">${text}</span>`
+}
+
+/** Formate, die das BMF als E-Rechnung nach EN 16931 anerkennt. */
+function standards(): string {
+  return `<div class="std"><b>E-Rechnung</b><span>XRechnung</span><span>ZUGFeRD</span><span>Factur-X</span><span>Peppol</span><em>EN 16931, bereit für 2027</em></div>`
+}
+
+function inbox(): string {
+  const rows: [string, string, string, string, string, string, string][] = [
+    ["Bürobedarf Holm", "ER-8831", "18.10.2026", "428,40 €", "Postfach", "ZUGFeRD", "wait"],
+    ["Cloudhost Nord", "2026-441", "16.10.2026", "1.190,00 €", "Postfach", "XRechnung", "wait"],
+    ["Bahn AG", "R-10221", "14.10.2026", "186,20 €", "Upload", "Factur-X", "wait"],
+    ["Energie Stadt", "77120", "02.10.2026", "640,00 €", "Postfach", "XRechnung", "book"],
+  ]
+  const filters = [
+    ["Zu prüfen", "4", true],
+    ["Verbucht", "18", false],
+    ["Dubletten", "1", false],
+    ["Alle", "", false],
+  ]
+    .map(([name, count, on]) => `<span class="${on ? "on" : ""}">${name}${count ? `<em>${count}</em>` : ""}</span>`)
+    .join("")
+  return (
+    head("Eingangsrechnungen", "XRechnung, ZUGFeRD und Factur-X werden direkt gelesen.", '<span class="pill">Oktober 2026</span>') +
+    standards() +
+    `<div class="drop"><span class="drop-mark">⇪</span><div><b>Rechnungen hochladen</b><p>XML, ZUGFeRD, Factur-X oder PDF – mehrere Dateien auf einmal</p></div></div>` +
+    `<div class="seg inv-seg">${filters}</div>` +
+    `<div class="kpis inv-kpis">` +
+    `<div class="kpi"><small>Offen</small><b>12.480 €</b><i class="up">4 Belege zu prüfen</i></div>` +
+    `<div class="kpi"><small>Diese Woche fällig</small><b>2</b><i class="down">1.618 €</i></div>` +
+    `<div class="kpi"><small>Strukturiert gelesen</small><b>92 %</b><i class="up">ohne Abtippen</i></div>` +
+    `<div class="kpi"><small>Verbucht im Oktober</small><b>18</b><i class="up">48.220 €</i></div></div>` +
+    `<div class="panel" style="padding:.35rem"><table><thead><tr><th>Lieferant</th><th>Nr.</th><th>Datum</th><th class="n">Betrag</th><th>Herkunft</th><th>Status</th></tr></thead><tbody>` +
+    rows
+      .map(
+        ([supplier, number, date, amount, source, method, state]) =>
+          `<tr><td><b class="who-name">${supplier}</b><span class="fine">${method}</span></td><td>${number}</td><td>${date}</td><td class="n">${amount}</td><td>${source}</td><td>${tag(state, state === "book" ? "Verbucht" : "Zu prüfen")}</td></tr>`,
+      )
+      .join("") +
+    `</tbody></table></div>`
+  )
+}
+
+function outgoing(): string {
+  const list: [string, string, string, string, string, string, boolean][] = [
+    ["RE-2026-0142", "Nordlicht AG", "12.10.2026", "5.045,60 €", "ready", "XRechnung", true],
+    ["RE-2026-0138", "Hafenwerk GmbH", "09.10.2026", "2.180,00 €", "draft", "ZUGFeRD", false],
+    ["RE-2026-0131", "Stadtwerke Muster", "02.10.2026", "8.920,00 €", "ready", "Factur-X", false],
+    ["RE-2026-0126", "Küstenklinik", "28.09.2026", "1.428,00 €", "draft", "XRechnung", false],
+  ]
+  return (
+    head("Ausgangsrechnungen", "Als XRechnung, ZUGFeRD oder Factur-X ausstellen.", '<span class="pill pri">Neue Rechnung</span>') +
+    standards() +
+    `<div class="kpis inv-kpis">` +
+    `<div class="kpi"><small>Offener Betrag</small><b>17.574 €</b><i class="up">4 Rechnungen</i></div>` +
+    `<div class="kpi"><small>E-Rechnungen</small><b>4</b><i class="up">EN 16931</i></div>` +
+    `<div class="kpi"><small>Entwürfe</small><b>2</b><i>noch offen</i></div>` +
+    `<div class="kpi"><small>Diesen Monat</small><b>13.966 €</b><i class="up">▲ 11 %</i></div></div>` +
+    `<div class="inv-split">` +
+    `<div class="panel inv-list">${list
+      .map(
+        ([number, customer, date, amount, state, format, on]) =>
+          `<div class="inv-row${on ? " on" : ""}"><div><b>${number}</b><span>${customer} · ${date} · ${format}</span></div><div class="inv-side"><em>${amount}</em>${tag(state, state === "ready" ? "Bereit" : "Entwurf")}</div></div>`,
+      )
+      .join("")}</div>` +
+    `<article class="paper">` +
+    `<header><div><small>Rechnung</small><b>RE-2026-0142</b></div><span>Muster GmbH</span></header>` +
+    `<p class="paper-to"><span>An</span>Nordlicht AG<br>Hafenstraße 12<br>20457 Hamburg</p>` +
+    `<table><thead><tr><th>Leistung</th><th class="n">Betrag</th></tr></thead><tbody>` +
+    `<tr><td>Beratung Controlling<span class="fine">12 Std</span></td><td class="n">1.440,00 €</td></tr>` +
+    `<tr><td>Dashboard Vertrieb<span class="fine">Pauschale</span></td><td class="n">2.800,00 €</td></tr>` +
+    `</tbody></table>` +
+    `<dl><div><dt>Netto</dt><dd>4.240,00 €</dd></div><div><dt>USt 19 %</dt><dd>805,60 €</dd></div><div class="sum"><dt>Brutto</dt><dd>5.045,60 €</dd></div></dl>` +
+    `<footer>${tag("info", "XRechnung · EN 16931")} <span>Zahlbar bis 11.11.2026</span></footer>` +
+    `</article></div>`
+  )
+}
+
+function cash(): string {
+  const days: [string, string, string][] = [
+    ["Mo", "42", "up"],
+    ["Di", "18", "down"],
+    ["Mi", "61", "up"],
+    ["Do", "9", "down"],
+    ["Fr", "24", "up"],
+    ["Mo", "15", "plan"],
+  ]
+  const tabs = ["Übersicht", "Bankkonten", "Journal", "Zahlungsverfolgung"]
+    .map((name, i) => `<span class="${i === 0 ? "on" : ""}">${name}</span>`)
+    .join("")
+  return (
+    head("Cash-Management", "Bestand, tägliche Zahlungen und Vorschau.", '<span class="pill">13.10. – 21.10.2026</span>') +
+    `<div class="ts-tabs">${tabs}</div>` +
+    `<div class="kpis inv-kpis">` +
+    `<div class="kpi"><small>Liquidität am 21.10.</small><b>4,82 Mio.</b><i class="up">▲ 1,8 % gegenüber Plan</i></div>` +
+    `<div class="kpi"><small>Netto-Cashflow</small><b>+186 T€</b><i class="up">über Plan</i></div>` +
+    `<div class="kpi"><small>Tiefststand 30 Tage</small><b>4,41 Mio.</b><i>am 04.11.</i></div>` +
+    `<div class="kpi"><small>Reichweite</small><b>64 Tage</b><i class="up">im Rahmen</i></div></div>` +
+    `<div class="panel"><h5>Liquiditätsentwicklung</h5><div class="sub">Ist bis heute, danach schraffiert der Plan. Zahl am Balken in Tausend Euro.</div>` +
+    `<div class="wf-sum"><span>Anfang <b>4,62 Mio.</b></span><span>Veränderung <b class="up">+0,20 Mio.</b></span><span>Ende <b>4,82 Mio.</b></span></div>` +
+    `<div class="wf">${days
+      .map(([label, value, kind]) => `<div class="${kind}"><em>${kind === "down" ? "−" : "+"}${value}</em><i style="height:${value}%"></i><span>${label}</span></div>`)
+      .join("")}</div></div>`
+  )
+}
+
 type Screen = { tab: string; nav: string; title: string; html: () => string }
 
 const SCREENS: Screen[] = [
@@ -194,6 +304,9 @@ const SCREENS: Screen[] = [
           <div class="entry"><div><div class="l1"><span class="code">P-1023</span><b>Budgetplanung 2027</b></div><p>Planungsmaske für dezentrale Bereiche</p></div><div class="tm">7,5 h</div></div></div></div></div>`,
   },
   { tab: "Auswertung", nav: "Auswertung", title: "Auswertung", html: evaluation },
+  { tab: "Cash-Management", nav: "Liquidität", title: "Cash-Management", html: cash },
+  { tab: "Eingangsrechnungen", nav: "Eingang", title: "Eingangsrechnungen", html: inbox },
+  { tab: "Ausgangsrechnungen", nav: "Ausgang", title: "Ausgangsrechnungen", html: outgoing },
   {
     tab: "KI-Assistent",
     nav: "Performance",
