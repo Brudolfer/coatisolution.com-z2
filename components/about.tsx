@@ -19,7 +19,7 @@ export function About() {
           {/* Leon Peter - Frontend */}
           <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 group">
             <CardContent className="p-5 sm:p-8 text-center">
-              <div className="relative mb-4 sm:mb-6">
+              <div className="mb-4 sm:mb-6">
                 <div className="w-32 h-32 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 p-1">
                   <div className="w-full h-full rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
                     <img
@@ -28,9 +28,6 @@ export function About() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                </div>
-                <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-r from-blue-500 to-sky-500 rounded-full flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Leon Peter</h3>
@@ -46,7 +43,7 @@ export function About() {
           {/* Simon Frey - Backend */}
           <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 group">
             <CardContent className="p-5 sm:p-8 text-center">
-              <div className="relative mb-4 sm:mb-6">
+              <div className="mb-4 sm:mb-6">
                 <div className="w-32 h-32 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-blue-500 p-1">
                   <div className="w-full h-full rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
                     <img
@@ -55,9 +52,6 @@ export function About() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                </div>
-                <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-full flex items-center justify-center">
-                  <Coffee className="w-6 h-6 text-white" />
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Simon Frey</h3>
