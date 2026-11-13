@@ -26,7 +26,7 @@ export function About() {
               </div>
               <h3 className="text-base font-bold text-white sm:text-xl">Leon Peter</h3>
               <p className="mb-2 text-xs font-semibold text-blue-400 sm:text-sm">Co-Founder & Frontend Designer</p>
-              <p className="text-xs leading-snug text-gray-300 sm:text-sm">
+              <p className="break-words text-xs leading-snug text-gray-300 sm:text-sm">
                 Spezialist für Frontend-Entwicklung, UI/UX Design und Web-Apps. Mit über 5 Jahren Erfahrung in der
                 Entwicklung moderner Webanwendungen bringt er kreative Lösungen und benutzerfreundliche Designs in jedes
                 Projekt.
@@ -47,7 +47,7 @@ export function About() {
               </div>
               <h3 className="text-base font-bold text-white sm:text-xl">Simon Frey</h3>
               <p className="mb-2 text-xs font-semibold text-sky-400 sm:text-sm">Co-Founder & Backend Architect</p>
-              <p className="text-xs leading-snug text-gray-300 sm:text-sm">
+              <p className="break-words text-xs leading-snug text-gray-300 sm:text-sm">
                 Experte für Backend-Entwicklung, FastAPI, Datenbank-Design und Cloud-Infrastructure. Verantwortlich für
                 skalierbare Lösungen und Systemarchitektur mit einem Fokus auf Performance, Sicherheit und moderne
                 API-Entwicklung.

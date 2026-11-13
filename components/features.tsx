@@ -41,34 +41,34 @@ export function Features() {
             ))}
           </div>
 
-          <div className="grid grid-cols-3 gap-2 sm:gap-4">
-            <div className="min-w-0 rounded-xl border border-white/10 bg-white/5 p-3 text-center sm:p-4">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-4">
+            <div className="min-w-0 overflow-hidden rounded-xl border border-white/10 bg-white/5 p-3 text-center sm:p-4">
               <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 sm:h-11 sm:w-11">
                 <Code className="h-4 w-4 text-white sm:h-5 sm:w-5" />
               </div>
-              <h3 className="mb-1 text-sm font-bold leading-tight text-white sm:text-base">Frontend Excellence</h3>
-              <p className="text-xs leading-snug text-gray-300 sm:text-sm">
+              <h3 className="mb-1 break-words text-sm font-bold leading-tight text-white sm:text-base">Frontend Excellence</h3>
+              <p className="break-words text-xs leading-snug text-gray-300 sm:text-sm">
                 Moderne, responsive Benutzeroberflächen mit React, Next.js und TypeScript für optimale
                 Benutzererfahrung.
               </p>
             </div>
 
-            <div className="min-w-0 rounded-xl border border-white/10 bg-white/5 p-3 text-center sm:p-4">
+            <div className="min-w-0 overflow-hidden rounded-xl border border-white/10 bg-white/5 p-3 text-center sm:p-4">
               <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-blue-500 sm:h-11 sm:w-11">
                 <Database className="h-4 w-4 text-white sm:h-5 sm:w-5" />
               </div>
-              <h3 className="mb-1 text-sm font-bold leading-tight text-white sm:text-base">Backend Power</h3>
-              <p className="text-xs leading-snug text-gray-300 sm:text-sm">
+              <h3 className="mb-1 break-words text-sm font-bold leading-tight text-white sm:text-base">Backend Power</h3>
+              <p className="break-words text-xs leading-snug text-gray-300 sm:text-sm">
                 Skalierbare APIs mit modernen Cloud-Lösungen, optimierte Datenbanken und sichere Infrastruktur.
               </p>
             </div>
 
-            <div className="min-w-0 rounded-xl border border-white/10 bg-white/5 p-3 text-center sm:p-4">
+            <div className="min-w-0 overflow-hidden rounded-xl border border-white/10 bg-white/5 p-3 text-center sm:p-4">
               <div className="mx-auto mb-2 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-sky-500 sm:h-11 sm:w-11">
                 <Cloud className="h-4 w-4 text-white sm:h-5 sm:w-5" />
               </div>
-              <h3 className="mb-1 text-sm font-bold leading-tight text-white sm:text-base">Cloud Solutions</h3>
-              <p className="text-xs leading-snug text-gray-300 sm:text-sm">
+              <h3 className="mb-1 break-words text-sm font-bold leading-tight text-white sm:text-base">Cloud Solutions</h3>
+              <p className="break-words text-xs leading-snug text-gray-300 sm:text-sm">
                 Professionelle Bereitstellung mit modernen Cloud-Lösungen und automatisierten Deployments.
               </p>
             </div>
