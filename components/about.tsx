@@ -63,34 +63,34 @@ export function About() {
         </div>
 
         {/* Gemeinsame Werte */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 flex items-center justify-center">
-              <Users className="w-8 h-8 text-white" />
+        <div className="grid grid-cols-4 gap-1.5">
+          <div className="min-w-0 text-center">
+            <div className="mx-auto mb-1.5 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-sky-500">
+              <Users className="h-4 w-4 text-white" />
             </div>
-            <h4 className="text-white font-semibold mb-2">Teamwork</h4>
-            <p className="text-gray-300 text-sm">Gemeinsam erreichen wir mehr</p>
+            <h4 className="text-[0.68rem] font-semibold leading-tight text-white">Teamwork</h4>
+            <p className="mt-0.5 text-[0.62rem] leading-tight text-gray-300">Gemeinsam erreichen wir mehr</p>
           </div>
-          <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 flex items-center justify-center">
-              <Award className="w-8 h-8 text-white" />
+          <div className="min-w-0 text-center">
+            <div className="mx-auto mb-1.5 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-indigo-500">
+              <Award className="h-4 w-4 text-white" />
             </div>
-            <h4 className="text-white font-semibold mb-2">Qualität</h4>
-            <p className="text-gray-300 text-sm">Höchste Standards in allem</p>
+            <h4 className="text-[0.68rem] font-semibold leading-tight text-white">Qualität</h4>
+            <p className="mt-0.5 text-[0.62rem] leading-tight text-gray-300">Höchste Standards in allem</p>
           </div>
-          <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 flex items-center justify-center">
-              <Coffee className="w-8 h-8 text-white" />
+          <div className="min-w-0 text-center">
+            <div className="mx-auto mb-1.5 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-blue-500">
+              <Coffee className="h-4 w-4 text-white" />
             </div>
-            <h4 className="text-white font-semibold mb-2">Innovation</h4>
-            <p className="text-gray-300 text-sm">Immer am Puls der Zeit</p>
+            <h4 className="text-[0.68rem] font-semibold leading-tight text-white">Innovation</h4>
+            <p className="mt-0.5 text-[0.62rem] leading-tight text-gray-300">Immer am Puls der Zeit</p>
           </div>
-          <div className="text-center">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center">
-              <Heart className="w-8 h-8 text-white" />
+          <div className="min-w-0 text-center">
+            <div className="mx-auto mb-1.5 flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-500">
+              <Heart className="h-4 w-4 text-white" />
             </div>
-            <h4 className="text-white font-semibold mb-2">Leidenschaft</h4>
-            <p className="text-gray-300 text-sm">Mit Herz bei der Sache</p>
+            <h4 className="text-[0.68rem] font-semibold leading-tight text-white">Leidenschaft</h4>
+            <p className="mt-0.5 text-[0.62rem] leading-tight text-gray-300">Mit Herz bei der Sache</p>
           </div>
         </div>
     </div>
