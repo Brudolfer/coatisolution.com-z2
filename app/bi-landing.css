@@ -330,14 +330,38 @@
 .bx .win{transform:none}
 }
 @media(max-width:700px){
-.bx .panel{overflow-x:auto}
+.bx .wrap{padding:0 .85rem}
+.bx .sec{padding:3.1rem 0}
+.bx .sec-head{margin-bottom:1.25rem}
+.bx h2{font-size:1.65rem}
+.bx .sec-head p{font-size:.95rem}
+.bx .tabs{flex-wrap:nowrap;justify-content:flex-start;gap:.4rem;overflow-x:auto;margin:0 -.85rem 1rem;padding:0 .85rem .3rem;scrollbar-width:none}
+.bx .tabs::-webkit-scrollbar{display:none}
+.bx .tab{flex:none;padding:.42rem .75rem;font-size:.78rem}
+.bx .win{border-radius:14px}
+.bx .app{height:min(32rem,72vh);max-height:min(32rem,72vh);grid-template-rows:minmax(0,1fr)}
+.bx .main{overflow:auto;max-height:none;min-height:0;padding:.8rem .7rem}
+.bx .mh{margin-bottom:.7rem}
+.bx .mh h3{font-size:1.25rem}
+.bx .kpis,.bx .ts-kpis,.bx .inv-kpis{gap:.4rem}
+.bx .kpi,.bx .tk{padding:.45rem .5rem}
+.bx .kpi b,.bx .tk b,.bx .tk.lead b{font-size:1.05rem}
+.bx .panel{overflow-x:auto;padding:.7rem}
+.bx .cols{gap:.55rem}
+.bx .ts-cal{gap:.22rem;padding:.45rem}
+.bx .td{min-height:2.4rem;padding:.22rem .25rem}
+.bx .d-label,.bx .d-date b{font-size:.62rem}
+.bx .paper{max-height:14rem}
 .bx table{font-size:.72rem}
-.bx th,.bx td{padding:.5rem .3rem}
+.bx th,.bx td{padding:.45rem .28rem}
 .bx th{font-size:.58rem;letter-spacing:.03em}
 .bx th:nth-child(2),.bx td:nth-child(2){display:none}
 .bx .paper th:nth-child(2),.bx .paper td:nth-child(2){display:table-cell}
 .bx td.n,.bx th.n{white-space:nowrap}
 .bx .bar{min-width:1.5rem}
+.bx .days{gap:.45rem}
+.bx .chat{gap:.5rem}
+.bx .msg{font-size:.75rem;padding:.6rem .7rem}
 }
 /* Module */
 .bx .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
@@ -354,5 +378,11 @@
 .bx .mods{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
-.bx .mods{grid-template-columns:1fr}
+.bx .mods{grid-template-columns:1fr;gap:.55rem}
+.bx .mod{padding:.8rem .85rem .75rem;border-radius:.9rem}
+.bx .mod .orb{width:1.6rem;height:1.6rem;margin-bottom:.4rem}
+.bx .mod h3{font-size:1.02rem;margin-bottom:.15rem}
+.bx .mod p{font-size:.82rem;margin-bottom:.4rem}
+.bx .mod ul{flex-direction:row;flex-wrap:wrap;gap:.3rem}
+.bx .mod li{font-size:.72rem;padding:.12rem .45rem .12rem .85rem;border-radius:999px;background:rgba(255,255,255,.04);white-space:nowrap}
 }

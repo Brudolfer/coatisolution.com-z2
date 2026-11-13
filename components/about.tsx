@@ -4,23 +4,23 @@ import { Users, Award, Coffee, Heart } from 'lucide-react'
 
 export function About() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             Über <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Uns</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto">
             Lernen Sie das Team hinter BI-Ratio kennen - zwei leidenschaftliche Entwickler mit einer Vision
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mb-8 sm:mb-16">
           {/* Leon Peter - Frontend */}
           <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 group">
-            <CardContent className="p-8 text-center">
-              <div className="relative mb-6">
-                <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 p-1">
+            <CardContent className="p-5 sm:p-8 text-center">
+              <div className="relative mb-4 sm:mb-6">
+                <div className="w-32 h-32 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 p-1">
                   <div className="w-full h-full rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
                     <img
                       src="/placeholder.svg?height=200&width=200"
@@ -45,9 +45,9 @@ export function About() {
 
           {/* Simon Frey - Backend */}
           <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 group">
-            <CardContent className="p-8 text-center">
-              <div className="relative mb-6">
-                <div className="w-48 h-48 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-blue-500 p-1">
+            <CardContent className="p-5 sm:p-8 text-center">
+              <div className="relative mb-4 sm:mb-6">
+                <div className="w-32 h-32 sm:w-48 sm:h-48 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-blue-500 p-1">
                   <div className="w-full h-full rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
                     <img
                       src="/placeholder.svg?height=200&width=200"

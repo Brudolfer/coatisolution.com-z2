@@ -19,17 +19,17 @@ const technologies = [
 
 export function Features() {
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
               Warum{" "}
               <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
                 BI-Ratio?
               </span>
             </h2>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
               Bei uns trifft tiefgehende Frontend- und Backend-Expertise auf fachliches Know-how aus jahrelanger Consulting-Erfahrung. Dieses Zusammenspiel ermöglicht es uns, maßgeschneiderte Lösungen zu entwickeln, die echten Mehrwert für unsere Kunden schaffen. Technisch fundiert, praxisnah und zukunftssicher.
             </p>
 
@@ -43,8 +43,8 @@ export function Features() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6">
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/10 transition-all duration-300">
+          <div className="grid grid-cols-1 gap-3 sm:gap-6">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-white/10 text-center hover:bg-white/10 transition-all duration-300">
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center">
                   <Code className="w-8 h-8 text-white" />
@@ -57,7 +57,7 @@ export function Features() {
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-white/10 text-center hover:bg-white/10 transition-all duration-300">
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 flex items-center justify-center">
                   <Database className="w-8 h-8 text-white" />
@@ -69,7 +69,7 @@ export function Features() {
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/10 transition-all duration-300">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-white/10 text-center hover:bg-white/10 transition-all duration-300">
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500 to-sky-500 flex items-center justify-center">
                   <Cloud className="w-8 h-8 text-white" />

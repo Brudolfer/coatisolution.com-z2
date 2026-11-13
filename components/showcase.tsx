@@ -332,6 +332,7 @@ export function Showcase() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    if (window.matchMedia("(max-width: 700px)").matches) return
     const timer = window.setInterval(() => setCurrent((i) => (i + 1) % SCREENS.length), 7000)
     return () => window.clearInterval(timer)
   }, [tick])

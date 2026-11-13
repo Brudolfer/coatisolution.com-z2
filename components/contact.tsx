@@ -15,23 +15,23 @@ export function Contact() {
   const [turnstileToken, setTurnstileToken] = useState("")
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
+    <section className="py-14 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
             Lassen Sie uns etwas{" "}
             <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
               Großartiges
             </span>{" "}
             schaffen
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto">
             Bereit, Ihre Ideen in die Realität umzusetzen? Kontaktieren Sie uns und lassen Sie uns über Ihr nächstes
             Projekt sprechen.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
           <div>
             <Card className="bg-white/5 backdrop-blur-sm border-white/10">
               <CardHeader>
