@@ -22,7 +22,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="mailto:info@thecoatisolution.com"
+                href="mailto:info@bi-ratio.com"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
               >
                 <Mail className="w-5 h-5 text-white" />

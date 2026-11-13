@@ -331,7 +331,7 @@ export async function sendContactEmail(prevState: any, formData: FormData) {
     return {
       success: false,
       message:
-        "Es gab einen Fehler beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail an simon.frey@thecoatisolution.com.",
+        "Es gab einen Fehler beim Senden Ihrer Nachricht. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail an info@bi-ratio.com.",
     }
   }
 }

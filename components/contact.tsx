@@ -140,7 +140,7 @@ export function Contact() {
                 </div>
                 <div>
                   <div className="text-white font-semibold">E-Mail</div>
-                  <div className="text-gray-300">info@thecoatisolution.com</div>
+                  <div className="text-gray-300">info@bi-ratio.com</div>
                 </div>
               </div>
 
