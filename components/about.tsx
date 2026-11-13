@@ -4,18 +4,15 @@ import { Users, Award, Coffee, Heart } from 'lucide-react'
 
 export function About() {
   return (
-    <section className="py-14 sm:py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-            Über <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Uns</span>
-          </h2>
-          <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto">
-            Lernen Sie das Team hinter BI-Ratio kennen - zwei leidenschaftliche Entwickler mit einer Vision
-          </p>
-        </div>
+    <div id="about">
+      <h3 className="text-2xl font-bold text-white mb-3">
+        Über <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Uns</span>
+      </h3>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Lernen Sie das Team hinter BI-Ratio kennen - zwei leidenschaftliche Entwickler mit einer Vision
+      </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 mb-8 sm:mb-16">
+      <div className="grid gap-4 mb-6">
           {/* Leon Peter - Frontend */}
           <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:bg-white/10 transition-all duration-300 group">
             <CardContent className="p-5 sm:p-8 text-center">
@@ -66,7 +63,7 @@ export function About() {
         </div>
 
         {/* Gemeinsame Werte */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 gap-4">
           <div className="text-center">
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-sky-500 flex items-center justify-center">
               <Users className="w-8 h-8 text-white" />
@@ -96,7 +93,6 @@ export function About() {
             <p className="text-gray-300 text-sm">Mit Herz bei der Sache</p>
           </div>
         </div>
-      </div>
-    </section>
+    </div>
   )
 }

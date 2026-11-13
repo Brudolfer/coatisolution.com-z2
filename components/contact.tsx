@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Mail, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react"
 import { sendContactEmail } from "@/app/actions/contact"
+import { About } from "@/components/about"
 
 export function Contact() {
   const [state, formAction, isPending] = useActionState(sendContactEmail, null)
@@ -154,13 +155,7 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
-              <h4 className="text-white font-semibold mb-3">Schnelle Antwortzeit</h4>
-              <p className="text-gray-300">
-                Wir antworten normalerweise innerhalb von 24 Stunden auf alle Anfragen. Bei dringenden Projekten zögern
-                Sie nicht, uns direkt anzurufen.
-              </p>
-            </div>
+            <About />
           </div>
         </div>
       </div>
