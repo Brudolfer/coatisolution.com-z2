@@ -155,9 +155,9 @@ export function Contact() {
               </div>
             </div>
 
-            <About />
           </div>
         </div>
+        <About />
       </div>
     </section>
   )
