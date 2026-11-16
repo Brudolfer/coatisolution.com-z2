@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 /*
  * Einblicke in die Plattform: nachgebaute Oberfläche mit Demodaten (keine echten Kundendaten).
@@ -329,13 +329,37 @@ export function Showcase() {
   const [current, setCurrent] = useState(0)
   // nach einem Klick auf einen Reiter läuft der Wechsel von dort aus weiter
   const [tick, setTick] = useState(0)
+  const tabsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    if (window.matchMedia("(max-width: 700px)").matches) return
-    const timer = window.setInterval(() => setCurrent((i) => (i + 1) % SCREENS.length), 7000)
-    return () => window.clearInterval(timer)
+    const section = document.getElementById("insights")
+    let timer = 0
+    const stop = () => window.clearInterval(timer)
+    const start = () => {
+      stop()
+      timer = window.setInterval(() => setCurrent((index) => (index + 1) % SCREENS.length), 7000)
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) start()
+      else stop()
+    })
+    if (section) observer.observe(section)
+    else start()
+    return () => {
+      stop()
+      observer.disconnect()
+    }
   }, [tick])
+
+  useEffect(() => {
+    const list = tabsRef.current
+    const tab = list?.querySelector<HTMLButtonElement>('[aria-selected="true"]')
+    if (!list || !tab) return
+    const left = tab.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    list.scrollTo({ left: Math.max(0, left), behavior: reduce ? "auto" : "smooth" })
+  }, [current])
 
   const screen = SCREENS[current]
 
@@ -353,7 +377,7 @@ export function Showcase() {
             </p>
           </div>
 
-          <div className="tabs" role="tablist">
+          <div className="tabs" role="tablist" ref={tabsRef}>
             {SCREENS.map((s, index) => (
               <button
                 key={s.tab}
