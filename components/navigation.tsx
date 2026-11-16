@@ -45,14 +45,14 @@ export function Navigation() {
             <Link href="/#services" className="text-gray-300 hover:text-white transition-colors">
               Leistungen
             </Link>
-            <Link href="/#about" className="text-gray-300 hover:text-white transition-colors">
-              Über Uns
-            </Link>
             <Link href="/#features" className="text-gray-300 hover:text-white transition-colors">
               Technologien
             </Link>
             <Link href="/#contact" className="text-gray-300 hover:text-white transition-colors">
               Kontakt
+            </Link>
+            <Link href="/#about" className="text-gray-300 hover:text-white transition-colors">
+              Über Uns
             </Link>
             <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
               <Link href="/#contact">Projekt starten</Link>
@@ -98,13 +98,6 @@ export function Navigation() {
                 Leistungen
               </Link>
               <Link
-                href="/#about"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
-              >
-                Über Uns
-              </Link>
-              <Link
                 href="/#features"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
@@ -117,6 +110,13 @@ export function Navigation() {
                 className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
               >
                 Kontakt
+              </Link>
+              <Link
+                href="/#about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full text-left px-3 py-2 text-gray-300 hover:text-white transition-colors"
+              >
+                Über Uns
               </Link>
               <div className="px-3 py-2">
                 <Button
