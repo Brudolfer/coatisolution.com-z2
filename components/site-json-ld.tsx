@@ -7,6 +7,7 @@ const graph = {
       "@type": "Organization",
       "@id": `${siteUrl}/#organization`,
       name: siteName,
+      legalName: "BI-Ratio GbR",
       url: siteUrl,
       email: "info@bi-ratio.com",
       telephone: "+49-179-2136982",
