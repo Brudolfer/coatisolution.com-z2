@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og"
 
-export const alt = "BI-Ratio – Liquidität, Rechnungen und Dashboards"
+export const alt = "BI-Ratio – Controlling, Haushalt und Rechnungen"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -24,7 +24,7 @@ export default function Image() {
         </div>
         <div style={{ display: "flex", fontSize: 92, fontWeight: 700, marginTop: 18 }}>BI-Ratio</div>
         <div style={{ display: "flex", fontSize: 36, marginTop: 16, color: "#dbeafe" }}>
-          Liquidität, Rechnungen und Dashboards
+          Controlling, Haushalt und Rechnungen
         </div>
       </div>
     ),
