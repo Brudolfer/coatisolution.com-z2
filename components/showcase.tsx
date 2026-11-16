@@ -307,9 +307,9 @@ const SCREENS: Screen[] = [
           <div class="entry"><div><div class="l1"><span class="code">P-1023</span><b>Budgetplanung 2027</b></div><p>Planungsmaske für dezentrale Bereiche</p></div><div class="tm">7,5 h</div></div></div></div></div>`,
   },
   { tab: "Auswertung", nav: "Auswertung", title: "Auswertung", html: evaluation },
-  { tab: "Cash-Management", nav: "Liquidität", title: "Cash-Management", html: cash },
   { tab: "Eingangsrechnungen", nav: "Eingang", title: "Eingangsrechnungen", html: inbox },
   { tab: "Ausgangsrechnungen", nav: "Ausgang", title: "Ausgangsrechnungen", html: outgoing },
+  { tab: "Cash-Management", nav: "Liquidität", title: "Cash-Management", html: cash },
   {
     tab: "KI-Assistent",
     nav: "Performance",
