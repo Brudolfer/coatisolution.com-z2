@@ -409,7 +409,6 @@ export function Showcase() {
               </div>
             </div>
           </div>
-          <p className="note">Darstellung mit Demodaten.</p>
         </div>
       </section>
     </div>
