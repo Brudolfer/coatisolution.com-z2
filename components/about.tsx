@@ -18,9 +18,9 @@ export function About() {
               <div className="mx-auto mb-3 h-16 w-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 p-0.5 sm:h-24 sm:w-24">
                 <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-gray-300">
                   <img
-                    src="/placeholder.svg?height=200&width=200"
-                    alt="Leon Peter Foto"
-                    className="h-full w-full object-cover"
+                    src="/images/leon-peter.jpg"
+                    alt="Leon Peter"
+                    className="h-full w-full object-cover object-[center_20%]"
                   />
                 </div>
               </div>
