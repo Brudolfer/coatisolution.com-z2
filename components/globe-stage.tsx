@@ -297,8 +297,8 @@ export function GlobeStage() {
       planetRefs.current.forEach((el, index) => {
         if (!el) return
         const angle = orbitTime * 0.16 + (index * 2 * Math.PI) / BI_MODULES.length
-        const ox = Math.cos(angle) * radius * (narrow ? 1.42 : 1.34)
-        const oy = Math.sin(angle) * radius * (narrow ? 0.62 : 0.44)
+        const ox = Math.cos(angle) * radius * (narrow ? 1.35 : 1.28)
+        const oy = Math.sin(angle) * radius * (narrow ? 1.25 : 0.92)
         const x = cx + ox * cosR - oy * sinR
         const y = cy + ox * sinR + oy * cosR
         const depth = Math.sin(angle)
