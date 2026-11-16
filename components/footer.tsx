@@ -36,7 +36,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="#services" className="hover:text-white transition-colors">
-                  Mobile Apps
+                  Responsive Design
                 </Link>
               </li>
               <li>

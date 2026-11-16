@@ -54,11 +54,9 @@ export function Navigation() {
             <Link href="/#contact" className="text-gray-300 hover:text-white transition-colors">
               Kontakt
             </Link>
-            <Link href="/#contact" passHref legacyBehavior>
-              <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
-                Projekt starten
-              </Button>
-            </Link>
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white">
+              <Link href="/#contact">Projekt starten</Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -121,14 +119,13 @@ export function Navigation() {
                 Kontakt
               </Link>
               <div className="px-3 py-2">
-                <Link href="/#contact" passHref legacyBehavior>
-                  <Button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
-                  >
-                    Projekt starten
-                  </Button>
-                </Link>
+                <Button
+                  asChild
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                >
+                  <Link href="/#contact">Projekt starten</Link>
+                </Button>
               </div>
             </div>
           </div>

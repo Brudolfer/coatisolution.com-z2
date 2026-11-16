@@ -8,7 +8,6 @@ export function Modules() {
       <section className="sec">
         <div className="wrap">
           <div className="sec-head">
-            <div className="kicker">Plattform</div>
             <h2>
               Ein System. <span className="grad">Zehn Welten.</span>
             </h2>
