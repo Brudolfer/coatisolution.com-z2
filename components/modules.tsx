@@ -10,7 +10,7 @@ export function Modules() {
           <div className="sec-head">
             <div className="kicker">Plattform</div>
             <h2>
-              Ein System. <span className="grad">Sieben Welten.</span>
+              Ein System. <span className="grad">Zehn Welten.</span>
             </h2>
             <p>Jedes Modul funktioniert für sich und alle greifen auf dasselbe Datenmodell zu.</p>
           </div>
