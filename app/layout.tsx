@@ -4,36 +4,55 @@ import { Inter } from 'next/font/google'
 import "./globals.css"
 import "./bi-landing.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { CookieBanner } from "@/components/cookie-banner" // Import the CookieBanner
+import { CookieBanner } from "@/components/cookie-banner"
+import { SiteJsonLd } from "@/components/site-json-ld"
+import { siteDescription, siteName, siteTitle, siteUrl } from "@/lib/site"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "BI-Ratio - Data. Science. Business.",
-  description:
-    "Geben Sie sich nicht mit Standard-Lösungen zufrieden. Wir verwandeln Daten in leistungsstarke digitale Lösungen. Spezialisiert auf Web-Entwicklung, Dashboards und maßgeschneiderte Software.",
-  keywords:
-    "Web-Entwicklung, Dashboard, Software-Entwicklung, Data Science, Business Intelligence, React, Next.js, FastAPI, Python, BI-Ratio",
-  authors: [{ name: "BI-Ratio" }],
-  creator: "BI-Ratio",
-  publisher: "BI-Ratio",
-  robots: "index, follow",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: siteTitle,
+    template: "%s | BI-Ratio",
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  authors: [{ name: siteName, url: siteUrl }],
+  creator: siteName,
+  publisher: siteName,
+  category: "business",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "de_DE",
-    url: "https://thecoatisolution.com",
-    siteName: "BI-Ratio",
-    title: "BI-Ratio - Data. Science. Business.",
-    description:
-      "Geben Sie sich nicht mit Standard-Lösungen zufrieden. Wir verwandeln Daten in leistungsstarke digitale Lösungen.",
+    url: "/",
+    siteName,
+    title: siteTitle,
+    description: siteDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: "BI-Ratio - Data. Science. Business.",
-    description: "Sie verdienen BI-Ratio - nicht irgendeine Standard-Lösung.",
-    creator: "@TheCoatiSolution",
+    title: siteTitle,
+    description: siteDescription,
   },
-    generator: 'v0.dev'
+  icons: {
+    icon: [{ url: "/images/bi-ratio-icon.png", type: "image/png" }],
+    apple: [{ url: "/images/bi-ratio-icon.png" }],
+  },
 }
 
 export default function RootLayout({
@@ -44,6 +63,7 @@ export default function RootLayout({
   return (
     <html lang="de" suppressHydrationWarning>
       <body className={inter.className}>
+        <SiteJsonLd />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
           <CookieBanner /> {/* Add the CookieBanner here */}

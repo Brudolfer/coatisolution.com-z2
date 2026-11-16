@@ -1,6 +1,18 @@
+import type { Metadata } from "next"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+
+export const metadata: Metadata = {
+  title: "Impressum",
+  description: "Anbieterkennzeichnung von BI-Ratio: Simon Frey, Mozartstraße 24, 73079 Süßen.",
+  alternates: { canonical: "/impressum" },
+  openGraph: {
+    url: "/impressum",
+    title: "Impressum | BI-Ratio",
+    description: "Anbieterkennzeichnung von BI-Ratio: Simon Frey, Mozartstraße 24, 73079 Süßen.",
+  },
+}
 
 export default function ImpressumPage() {
 return (
