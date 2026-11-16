@@ -47,7 +47,6 @@ return (
           <section>
             <h3 className="text-2xl font-semibold text-white mb-4">Kontakt</h3>
             <p>
-              Telefon: 0179 2136982<br />
               E-Mail: info@bi-ratio.com
             </p>
           </section>

@@ -1,5 +1,4 @@
-import { Mail } from 'lucide-react'
-import Link from "next/link" // Import Link
+import Link from "next/link"
 
 export function Footer() {
   return (
@@ -20,14 +19,6 @@ export function Footer() {
               Data. Science. Business. - Wir verwandeln Daten in leistungsstarke digitale Lösungen. Spezialisiert auf
               Web-Entwicklung, Dashboards und maßgeschneiderte Software.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="mailto:info@bi-ratio.com"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
-              >
-                <Mail className="w-5 h-5 text-white" />
-              </a>
-            </div>
           </div>
 
           <div>

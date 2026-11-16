@@ -10,7 +10,6 @@ const graph = {
       legalName: "BI-Ratio GbR",
       url: siteUrl,
       email: "info@bi-ratio.com",
-      telephone: "+49-179-2136982",
       logo: `${siteUrl}/images/bi-ratio-icon.png`,
       image: `${siteUrl}/images/bi-ratio-logo.png`,
       description: siteDescription,

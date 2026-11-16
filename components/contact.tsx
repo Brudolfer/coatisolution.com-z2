@@ -135,9 +135,13 @@ export function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center">
+                <a
+                  href="mailto:info@bi-ratio.com"
+                  aria-label="E-Mail schreiben"
+                  className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center"
+                >
                   <Mail className="w-6 h-6 text-white" />
-                </div>
+                </a>
                 <div>
                   <div className="text-white font-semibold">E-Mail</div>
                   <div className="text-gray-300">info@bi-ratio.com</div>
