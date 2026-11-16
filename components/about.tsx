@@ -39,9 +39,9 @@ export function About() {
               <div className="mx-auto mb-3 h-16 w-16 rounded-full bg-gradient-to-r from-sky-500 to-blue-500 p-0.5 sm:h-24 sm:w-24">
                 <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-gray-300">
                   <img
-                    src="/placeholder.svg?height=200&width=200"
-                    alt="Simon Frey Foto"
-                    className="h-full w-full object-cover"
+                    src="/images/simon-frey.jpg"
+                    alt="Simon Frey"
+                    className="h-full w-full object-cover object-[center_20%]"
                   />
                 </div>
               </div>
