@@ -4,7 +4,7 @@ import { Users, Award, Coffee, Heart } from 'lucide-react'
 
 export function About() {
   return (
-    <div id="about" className="mt-10">
+    <div id="about" className="mt-10 scroll-mt-24 md:scroll-mt-32">
       <h3 className="mb-2 text-2xl font-bold text-white">
         Über <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Uns</span>
       </h3>
