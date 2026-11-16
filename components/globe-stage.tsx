@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react"
 import { createPortal } from "react-dom"
 
-import { BI_MODULES } from "@/lib/bi-modules"
+import { BI_PLANETS } from "@/lib/bi-modules"
 import { LAND_MASK_B64 } from "@/lib/land-mask"
 
 type Vec = [number, number, number]
@@ -296,7 +296,7 @@ export function GlobeStage() {
       const current = activeRef.current
       planetRefs.current.forEach((el, index) => {
         if (!el) return
-        const angle = orbitTime * 0.16 + (index * 2 * Math.PI) / BI_MODULES.length
+        const angle = orbitTime * 0.16 + (index * 2 * Math.PI) / BI_PLANETS.length
         const ox = Math.cos(angle) * radius * (narrow ? 1.35 : 1.28)
         const oy = Math.sin(angle) * radius * (narrow ? 1.25 : 0.92)
         const x = cx + ox * cosR - oy * sinR
@@ -412,7 +412,7 @@ export function GlobeStage() {
           </b>
         </div>
       </div>
-      {BI_MODULES.map((module, index) => (
+      {BI_PLANETS.map((module, index) => (
         <div
           key={module.title}
           ref={(el) => {
@@ -457,16 +457,16 @@ export function GlobeStage() {
             <div
               className="sheet"
               role="dialog"
-              aria-label={BI_MODULES[active].title}
-              style={{ "--hi": BI_MODULES[active].colors[0], "--glow": BI_MODULES[active].colors[3] } as CSSProperties}
+              aria-label={BI_PLANETS[active].title}
+              style={{ "--hi": BI_PLANETS[active].colors[0], "--glow": BI_PLANETS[active].colors[3] } as CSSProperties}
             >
               <button type="button" className="sheet-close" aria-label="Schließen" onClick={() => setActive(null)}>
                 ×
               </button>
-              <h4>{BI_MODULES[active].title}</h4>
-              <p>{BI_MODULES[active].summary}</p>
+              <h4>{BI_PLANETS[active].title}</h4>
+              <p>{BI_PLANETS[active].summary}</p>
               <ul>
-                {BI_MODULES[active].points.map(([name, text]) => (
+                {BI_PLANETS[active].points.map(([name, text]) => (
                   <li key={name}>
                     {name}
                     <span>{text}</span>

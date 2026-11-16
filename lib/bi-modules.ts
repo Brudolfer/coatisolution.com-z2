@@ -9,7 +9,7 @@ export type BiModule = {
   points: [name: string, text: string][]
 }
 
-/** Module der Plattform: ein Planet am Globus, eine Karte im Abschnitt "Plattform". */
+/** Module der Plattform: eine Karte im Abschnitt "Plattform". */
 export const BI_MODULES: BiModule[] = [
   {
     value: "Cash",
@@ -148,6 +148,81 @@ export const BI_MODULES: BiModule[] = [
       ["Scheduler", "Aktualisierung läuft automatisch zu festen Zeiten"],
       ["Datenmodell", "Einheitliche Struktur für alle Auswertungen"],
       ["Mandanten", "Daten und Rechte je Mandant getrennt"],
+    ],
+  },
+]
+
+/** Fünf Einstiege am Globus. Die Kacheln darunter bleiben bei den einzelnen Modulen. */
+export const BI_PLANETS: BiModule[] = [
+  {
+    value: "Liquidität",
+    label: "Cash",
+    title: "Liquidität",
+    summary: "Kontostände, Zahlungsströme und die Planung der kommenden Wochen.",
+    colors: ["#7dd3fc", "#2563eb", "#0b2a66", "rgba(56,189,248,.55)"],
+    ring: false,
+    points: [
+      ["Liquiditätsübersicht", "Kontostände und Zahlungsströme auf einen Blick"],
+      ["Plan-Ist-Vergleich", "Abweichungen zwischen Planung und Realität erkennen"],
+      ["Liquiditätsplanung", "Erwartete Ein- und Auszahlungen im Kalender"],
+      ["Wasserfall-Analyse", "Veränderungen Schritt für Schritt nachvollziehen"],
+    ],
+  },
+  {
+    value: "Rechnungen",
+    label: "Belege",
+    title: "Rechnungen",
+    summary: "Eingang und Ausgang, inklusive E-Rechnung nach EN 16931.",
+    colors: ["#fda4af", "#e11d48", "#4c0519", "rgba(244,63,94,.55)"],
+    ring: false,
+    points: [
+      ["Eingangsrechnungen", "Belege aus Postfach und Upload prüfen und verbuchen"],
+      ["Ausgangsrechnungen", "Rechnungen schreiben und als E-Rechnung ausstellen"],
+      ["XRechnung und ZUGFeRD", "Dazu Factur-X, die Formate ab 2027"],
+      ["Direkt aus dem XML", "Strukturierte Rechnungen werden ohne Abtippen gelesen"],
+    ],
+  },
+  {
+    value: "Haushalt",
+    label: "Planung",
+    title: "Haushalt",
+    summary: "Budget, Kostenrechnung und die Finanzberichte an einer Stelle.",
+    colors: ["#fde68a", "#d98a0a", "#6a3604", "rgba(251,191,36,.55)"],
+    ring: true,
+    points: [
+      ["Budgetierung", "Zentral vorgeben, dezentral in den Bereichen planen"],
+      ["Haushaltsbuch", "Alle Buchungen eines Haushalts nachvollziehbar"],
+      ["Controlling", "Kostenstellen, Plan, Ist und Hochrechnung"],
+      ["Finanzberichte", "Gewinn- und Verlustrechnung und Bilanz"],
+      ["Auswertung", "Abweichungen zum Vorjahr, Export als PDF und Excel"],
+    ],
+  },
+  {
+    value: "Personal",
+    label: "Zeiten",
+    title: "Personal",
+    summary: "Arbeitszeit, Abwesenheit und Reisen an einer Stelle.",
+    colors: ["#86efac", "#15935f", "#0a4a35", "rgba(52,211,153,.55)"],
+    ring: false,
+    points: [
+      ["Zeiterfassung", "Arbeitszeit buchen, Zeitkonto und Soll im Blick"],
+      ["Urlaub & Abwesenheit", "Anträge stellen, Freigabe und Resturlaub sehen"],
+      ["Leistungserfassung", "Stunden auf Projekte und Leistungen buchen"],
+      ["Reisekosten", "Belege, Spesen und Abrechnung als PDF"],
+    ],
+  },
+  {
+    value: "Dashboards",
+    label: "KI",
+    title: "Dashboards",
+    summary: "Kennzahlen, eigene Ansichten und Fragen an die Daten.",
+    colors: ["#c4b5fd", "#6d46d9", "#2a1668", "rgba(167,139,250,.6)"],
+    ring: true,
+    points: [
+      ["Fertige Dashboards", "Die wichtigsten Kennzahlen für die Leitung"],
+      ["Dashboard-Baukasten", "Eigene Ansichten aus Kennzahl, Tabelle und Diagramm"],
+      ["Ratio-KI", "Fragen stellen und Antworten aus den Daten erhalten"],
+      ["Automatische Insights", "Auffälligkeiten werden von selbst gemeldet"],
     ],
   },
 ]
